@@ -438,6 +438,250 @@ progress {
   }
 }
 
+.synth {
+  grid-area: synth;
+  display: flex;
+  justify-content: center;
+}
+
+.synth2 {
+  width: 100%;
+  max-width: 540px;
+  transform: rotate(2deg);
+
+  --synth-whitekey: var(--red-4);
+  --synth-whitekey-pressed: var(--red-1);
+  --synth-blackkey: var(--red-12);
+  --synth-blackkey-pressed: var(--red-11);
+  --synth-stroke: var(--red-12);
+  --synth-lcd-bg: var(--red-4);
+  --synth-lcd-light: var(--red-2);
+  --synth-lcd-medium: var(--red-11);
+  --synth-lcd-dark: var(--red-12);
+  --synth-keyletter: var(--red-12);
+
+  :global(.dark) & {
+    --synth-whitekey: var(--red-12);
+    --synth-whitekey-pressed: white;
+    --synth-blackkey: var(--red-3);
+    --synth-blackkey-pressed: var(--red-1);
+    --synth-stroke: var(--red-1);
+    --synth-lcd-bg: var(--red-12);
+    --synth-lcd-light: white;
+    --synth-lcd-medium: var(--red-5);
+    --synth-lcd-dark: var(--red-3);
+    --synth-keyletter: var(--red-3);
+  }
+
+  &[data-loading="true"] {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &:focus,
+  &:focus-within {
+    outline: none;
+  }
+
+  svg {
+    overflow: visible;
+  }
+
+  @media (width < 600px) {
+    width: 130%;
+    margin-inline: -15%;
+  }
+}
+
+.synth-base {
+  fill: var(--red-4);
+  stroke: var(--red-12);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+:global(.transitioning) .synth-base {
+  transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+}
+
+.synth-keys-backdrop {
+  fill: var(--synth-stroke);
+}
+
+.synth-keys-outline {
+  fill: none;
+  stroke: var(--synth-stroke);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+.synth-key {
+  cursor: pointer;
+  transition: fill 0.4s ease-out;
+
+  .pressed-overlay {
+    fill: var(--synth-stroke);
+    transform: translateY(2px);
+    transition: transform 0.1s ease-out;
+  }
+
+  .base {
+    transition: fill 0.4s ease-out;
+    stroke: var(--synth-stroke);
+    stroke-width: 1.5px;
+  }
+
+  &.white .base {
+    fill: var(--synth-whitekey);
+  }
+
+  &.black .base {
+    fill: var(--synth-blackkey);
+  }
+
+  &.pressed {
+    .base {
+      transition: none;
+      fill: var(--synth-whitekey-pressed);
+    }
+
+    &.black .base {
+      fill: var(--synth-blackkey-pressed);
+    }
+
+    .pressed-overlay {
+      transition: none;
+      transform: translateY(0);
+    }
+  }
+}
+
+.key-letter {
+  fill: var(--synth-keyletter);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: 0.4s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.fadeout {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    transition-delay: 0.2s;
+  }
+}
+
+@keyframes press-start {
+  0%,
+  20% {
+    transform: translateY(-10%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.lcd-bg {
+  fill: var(--synth-lcd-bg);
+  stroke: var(--synth-stroke);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
+}
+
+.lcd-highlight {
+  fill: var(--synth-lcd-light);
+}
+
+.lcd-base {
+  fill: var(--synth-lcd-medium);
+}
+
+.notehead,
+.synth-instrument .lcd-base {
+  fill: var(--synth-lcd-dark);
+}
+
+/* Start button */
+.start {
+  cursor: pointer;
+
+  :global([data-enabled="true"]) & {
+    display: none;
+  }
+
+  .lcd-base {
+    fill: var(--synth-lcd-dark);
+  }
+
+  &:hover .lcd-base {
+    animation: press-start 1s step-start infinite;
+
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+.synth-randomize {
+  display: none;
+
+  :global([data-loading="true"]) & {
+    display: none;
+  }
+
+  @media all and (pointer: coarse) {
+    display: none;
+  }
+}
+
+@media not all and (pointer: coarse) {
+  .synth-instrument:hover .instrument {
+    display: none;
+  }
+
+  .synth-randomize .synth-instrument:hover {
+    display: block;
+  }
+
+  .instrument-arrow:hover .lcd-base {
+    fill: var(--synth-lcd-dark);
+  }
+}
+
+/* Default hidden state, overridden in JS */
+.instrument,
+.notehead {
+  display: none;
+}
+
+.synth-instruments,
+.synth-staff {
+  :global([data-enabled="false"]) & {
+    display: none;
+  }
+}
+
+.synth-instrument,
+.instrument-arrow {
+  cursor: pointer;
+}
+
 /*-----scrollbar-----*/
 
 ::-webkit-scrollbar {
