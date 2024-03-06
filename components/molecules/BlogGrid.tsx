@@ -10,41 +10,41 @@ const BlogGrid = () => {
         }}
       >
         <Blogwork
-          blog="zoro"
+          blog="frost"
           tall
           subtitle="docker networking"
           link="https://blog.hemant.social/docker"
         />
         <Blogwork
-          blog="hisoka"
+          blog="deep"
           subtitle="graphql"
           link="https://blog.hemant.social/graphql"
         />
         <Blogwork
-          blog="gojo"
+          blog="rain"
           tall
           subtitle="kafka"
           link="https://blog.hemant.social/kafka"
         />
         <Blogwork
-          blog="kakashi"
+          blog="purp"
           subtitle="whisper"
           link="https://blog.hemant.social/whisper"
         />
         <Blogwork
-          blog="killua"
+          blog="makima"
           tall
           subtitle="cloudflare"
           link="https://blog.hemant.social/cloudflare"
         />
         <Blogwork
-          blog="spidermon"
+          blog="ghost"
           tall
           subtitle="moving gradients"
           link="https://blog.hemant.social/moving-gradients"
         />
         <Blogwork
-          blog="shanks"
+          blog="yoru"
           tall
           shrink
           commission
@@ -52,18 +52,18 @@ const BlogGrid = () => {
           link="https://blog.hemant.social/grid"
         />
         <Blogwork
-          blog="nom"
+          blog="nisu"
           tall
           subtitle="zustand"
           link="https://blog.hemant.social/zustand"
         />
         <Blogwork
-          blog="todu"
+          blog="lost"
           subtitle="dnd"
           link="https://blog.hemant.social/drag-n-drop"
         />
         <Blogwork
-          blog="boo"
+          blog="momi"
           subtitle="evolution"
           link="https://blog.hemant.social/evolution-of-frontend-development"
         />
