@@ -92,10 +92,10 @@ const RichPresence: React.FC = () => {
     }
 
     if (data?.activities[1]) {
-      setIsActivity(true);
+      // setIsActivity(true);
       setActivityNumber(1);
     } else {
-      setIsActivity(false);
+      // setIsActivity(false);
       setActivityNumber(0);
     }
 
