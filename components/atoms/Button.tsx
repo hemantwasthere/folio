@@ -1,13 +1,13 @@
 import React from "react";
 // import useSound from "use-sound";
-// import clicksound from "../../public/sounds/click.mp3";
+// import clicksound from "../../public/sounds/lol_click.mp3";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({ children }) => {
-  // const [play] = useSound("../../public/sounds/click.mp3", {
+  // const [play] = useSound("../../public/sounds/lol_click.mp3", {
   //     volume: 1
   // });
 

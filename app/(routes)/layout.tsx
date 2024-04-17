@@ -55,7 +55,7 @@ export default function PageLayout({
           onMouseUp={() => setScale(1)}
         >
           <ResumeButton />
-          <audio ref={audioRef!} src="/sounds/click.mp3" />
+          <audio ref={audioRef!} src="/sounds/lol_click.mp3" />
           <NavHost />
           <Cursor
             mouseX={mouseX}

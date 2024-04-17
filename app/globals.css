@@ -173,6 +173,14 @@ body.stop-transitions * {
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --red-1: #191111;
+    --red-2: #201314;
+    --red-3: #3b1219;
+    --red-4: #500f1c;
+    --red-5: #611623;
+    --red-11: #ff9592;
+    --red-12: #ffd1d9;
+
     --text-primary: #eed1c7;
     --text-secondary: #bda3a3;
     --accent: #dba895;

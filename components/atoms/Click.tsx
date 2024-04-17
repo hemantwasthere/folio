@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // Add the click sound file path here (you can use a sound file of your choice)
-const clickSoundFilePath = "../../public/sounds/click.ogg";
+const clickSoundFilePath = "../../public/sounds/lol_click.ogg";
 
 interface ClickProps {
   children: React.ReactNode;
