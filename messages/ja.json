@@ -1,0 +1,81 @@
+{
+    "Hero": {
+        "name": "ヘマント",
+        "innovative": "革新的",
+        "wizard": "ウィザード",
+        "transforming": "デザインを現実に変える",
+        "discover": "私の仕事を発見する"
+    },
+    "About": {
+        "about1": "こんにちは、私はヘマントです！ :]",
+        "about2": "歳のフロントエンド開発者兼フリーランサーで、インドに拠点を置いています。真剣にコーディングに取り組んできました。",
+        "about3": "最近では、コミュニティに還元することに興味を持つようになりました。ウェブ開発者として",
+        "about4": "オープンソース",
+        "about5": "に貢献するのが好きで、そのためにここにたどり着いたのかもしれません。現在、ブロックチェーンとRustに取り組んでいます。"
+    },
+    "Blog": {
+        "blog": "ブログ",
+        "work": "：作業",
+        "blog1": {
+            "blog": "フロスト",
+            "subtitle": "ドッカーネットワーキング"
+        },
+        "blog2": {
+            "blog": "ディープ",
+            "subtitle": "グラフQL"
+        },
+        "blog3": {
+            "blog": "レイン",
+            "subtitle": "カフカ"
+        },
+        "blog4": {
+            "blog": "パープ",
+            "subtitle": "ウィスパー"
+        },
+        "blog5": {
+            "blog": "マキマ",
+            "subtitle": "クラウドフレア"
+        },
+        "blog6": {
+            "blog": "ゴースト",
+            "subtitle": "移動するグラデーション"
+        },
+        "blog7": {
+            "blog": "ヨル",
+            "subtitle": "グリッド"
+        },
+        "blog8": {
+            "blog": "ニス",
+            "subtitle": "ツスタンド"
+        },
+        "blog9": {
+            "blog": "ロスト",
+            "subtitle": "DND"
+        },
+        "blog10": {
+            "blog": "モミ",
+            "subtitle": "進化"
+        }
+    },
+    "Repos": {
+        "code": "コード",
+        "work": "：作業"
+    },
+    "Supporters": {
+        "supporters": "サポーター",
+        "thankyou": "ありがとう",
+        "supporter1": {
+            "name": "ピユシュ・ガルグ",
+            "message": "こんにちは"
+        },
+        "supporter2": {
+            "name": "ヴェダント・ジェイン",
+            "message": "こんにちは"
+        }
+    },
+    "Footer": {
+        "madewithpain": "痛みで作られました",
+        "youarehere": "ここにいる",
+        "howtodelete": "削除方法"
+    }
+}
