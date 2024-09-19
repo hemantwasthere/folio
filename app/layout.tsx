@@ -34,6 +34,8 @@ export default async function RootLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
+  if (!locale) return "None";
+
   return (
     <PHProvider>
       <html lang={locale} suppressHydrationWarning>

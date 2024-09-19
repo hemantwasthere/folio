@@ -1,6 +1,10 @@
+import { useTranslations } from "next-intl";
+
 import Blogwork from "../atoms/Blogwork";
 
 const BlogGrid = () => {
+  const t = useTranslations("Blog");
+
   return (
     <div className="flex justify-center mb-16">
       <div
@@ -10,61 +14,71 @@ const BlogGrid = () => {
         }}
       >
         <Blogwork
-          blog="frost"
+          src="frost"
+          blog={t("blog1.blog")}
+          subtitle={t("blog1.subtitle")}
           tall
-          subtitle="docker networking"
           link="https://blog.hemant.social/docker"
         />
         <Blogwork
-          blog="deep"
-          subtitle="graphql"
+          src="deep"
+          blog={t("blog2.blog")}
+          subtitle={t("blog2.subtitle")}
           link="https://blog.hemant.social/graphql"
         />
         <Blogwork
-          blog="rain"
+          src="rain"
+          blog={t("blog3.blog")}
+          subtitle={t("blog3.subtitle")}
           tall
-          subtitle="kafka"
           link="https://blog.hemant.social/kafka"
         />
         <Blogwork
-          blog="purp"
-          subtitle="whisper"
+          src="purp"
+          blog={t("blog4.blog")}
+          subtitle={t("blog4.subtitle")}
           link="https://blog.hemant.social/whisper"
         />
         <Blogwork
-          blog="makima"
+          src="makima"
+          blog={t("blog5.blog")}
+          subtitle={t("blog5.subtitle")}
           tall
-          subtitle="cloudflare"
           link="https://blog.hemant.social/cloudflare"
         />
         <Blogwork
-          blog="ghost"
+          src="ghost"
+          blog={t("blog6.blog")}
+          subtitle={t("blog6.subtitle")}
           tall
-          subtitle="moving gradients"
           link="https://blog.hemant.social/moving-gradients"
         />
         <Blogwork
-          blog="yoru"
+          src="yoru"
+          blog={t("blog7.blog")}
+          subtitle={t("blog7.subtitle")}
           tall
           shrink
           commission
-          subtitle="grid"
           link="https://blog.hemant.social/grid"
         />
         <Blogwork
-          blog="nisu"
+          src="nisu"
+          blog={t("blog8.blog")}
+          subtitle={t("blog8.subtitle")}
           tall
-          subtitle="zustand"
           link="https://blog.hemant.social/zustand"
         />
         <Blogwork
-          blog="lost"
-          subtitle="dnd"
+          src="lost"
+          blog={t("blog9.blog")}
+          subtitle={t("blog9.subtitle")}
           link="https://blog.hemant.social/drag-n-drop"
         />
         <Blogwork
-          blog="momi"
-          subtitle="evolution"
+          src="momi"
+          blog={t("blog10.blog")}
+          subtitle={t("blog10.subtitle")}
           link="https://blog.hemant.social/evolution-of-frontend-development"
         />
       </div>

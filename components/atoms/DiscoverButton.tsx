@@ -5,7 +5,7 @@ import posthog from "posthog-js";
 
 import Button from "./Button";
 
-const DiscoverButton = () => {
+const DiscoverButton = ({ buttonTitle }: { buttonTitle: string }) => {
   return (
     <Link
       tabIndex={-1}
@@ -17,7 +17,7 @@ const DiscoverButton = () => {
         });
       }}
     >
-      <Button>Discover my work ↓</Button>
+      <Button>{buttonTitle} ↓</Button>
     </Link>
   );
 };

@@ -3,12 +3,14 @@
 import React, { useEffect, useState } from "react";
 
 import Tooltip from "@/components/atoms/Tooltip";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import posthog from "posthog-js";
 import RichPresence from "../molecules/RichPresence";
 
 const About: React.FC = () => {
   const [age, setAge] = useState<ReturnType<typeof getAge>>();
+  const t = useTranslations("About");
 
   // i didnt write this idk
   const getAge = () => {
@@ -41,17 +43,15 @@ const About: React.FC = () => {
       >
         <h2 className="md:hidden mb-4 md:mt-4 md:mb-0">bio</h2>
         <div className="text-text_secondary font-[300] text-[1.1rem] tracking-[-0rem] leading-[1.75rem]">
-          Hey there, I&rsquo;m Hemant! :] I&rsquo;m a{" "}
+          {t("about1")}{" "}
           {age && (
             <Tooltip tip={age}>
               <span className="bio_span">{Math.floor(Number(age))}</span>
             </Tooltip>
-          )}{" "}
-          year old frontend developer and freelancer based in India. I&rsquo;ve
-          taken coding seriously since <span className="bio_span">2021</span>,
-          and have been freelancing since <span className="bio_span">2022</span>
-          . Recently, however, I&rsquo;ve grown a knack for giving back to
-          community. I like contributing to{" "}
+          )}
+          {" "}{t("about2")}{" "}<span className="bio_span">2021</span>{" "}
+          {t("about3")}<span className="bio_span">2022</span>{" "}
+          {t("about4")}{" "}
           <Tooltip tip="🤓">
             <Link
               className="no-underline offset_ring rounded-[7px]"
@@ -63,12 +63,10 @@ const About: React.FC = () => {
                   Clicked: true,
                 });
               }}
-            >
-              <span className="bio_span">open source</span>
+            > <span className="bio_span">open source</span>
             </Link>
           </Tooltip>{" "}
-          as a web developer, which is probably the reason why you&rsquo;ve
-          ended up here. Currently struggling with blockchain and rust.
+          {t("about5")}
         </div>
       </div>
     </section>

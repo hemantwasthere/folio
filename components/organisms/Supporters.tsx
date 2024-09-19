@@ -1,22 +1,27 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 
-import supporters from "@/data/supporters.json";
+import { getSupportersData } from "@/data/supporters";
 import Tooltip from "../atoms/Tooltip";
 
 const Supporters: React.FC = () => {
+  const t = useTranslations("Supporters");
+
+  const supporters = getSupportersData();
+
   return (
     <section className="wrapper">
       <div className="flex flex-col items-start md:items-center mt-0 mb-6">
-        <h2>supporters</h2>
-        <p>Thank you!</p>
+        <h2>{t("supporters")}</h2>
+        <p>{t("thankyou")}!</p>
       </div>
 
       <div className="flex flex-wrap justify-start gap-8 mb-12 md:justify-center">
-        {supporters.map(({ name, icon, href, message }) => (
+        {supporters.map(({ name, icon, href, message }, i) => (
           <div key={name}>
             <Tooltip tip={message}>
               <div className="flex flex-col items-center gap-2">

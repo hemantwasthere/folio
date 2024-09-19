@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 interface BlogworkProps {
   blog: string;
+  src: string;
   subtitle?: string;
   tall?: boolean;
   shrink?: boolean;
@@ -20,6 +21,7 @@ interface BlogworkProps {
 
 const Blogwork: React.FC<BlogworkProps> = ({
   blog = "",
+  src,
   subtitle = "Click anywhere to dismiss!",
   tall = false,
   shrink = false,
@@ -61,8 +63,8 @@ const Blogwork: React.FC<BlogworkProps> = ({
             blog_shrink: shrink,
           }
         )}
-        style={{ backgroundImage: `url(blog/sketchy_anime/${blog}.jpeg` }}
-        aria-label={blog}
+        style={{ backgroundImage: `url(blog/sketchy_anime/${src}.jpeg` }}
+        aria-label={src}
         onClick={() => setClicked(true)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -111,8 +113,8 @@ const Blogwork: React.FC<BlogworkProps> = ({
 
             <img
               className="max-h-[83vh] h-auto max-w-[86vw] rounded-[2vh] flex justify-center items-center"
-              src={`/blog/sketchy_anime/${blog}.jpeg`}
-              alt={blog}
+              src={`/blog/sketchy_anime/${src}.jpeg`}
+              alt={src}
             />
 
             <Link

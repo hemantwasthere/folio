@@ -1,4 +1,8 @@
 {
+    "Nav": {
+        "about": "about",
+        "work": "work"
+    },
     "Hero": {
         "name": "Hemant",
         "innovative": "Innovative",
@@ -7,15 +11,16 @@
         "discover": "Discover my work"
     },
     "About": {
-        "about1": "Hey there, I’m Hemant! :] I’m a 20.5695474871",
-        "about2": "year old frontend developer and freelancer based in India. I’ve taken coding seriously since",
-        "about3": ". Recently, however, I’ve grown a knack for giving back to community. I like contributing to",
-        "about4": "open source",
+        "about1": "Hey there, I’m Hemant! :] I’m a ",
+        "about2": "year old frontend developer and freelancer based in India. I’ve taken coding seriously since ",
+        "about3": ", and have been freelancing since ",
+        "about4": ". Recently, however, I’ve grown a knack for giving back to community. I like contributing to ",
         "about5": "as a web developer, which is probably the reason why you’ve ended up here. Currently struggling with blockchain and rust."
     },
     "Blog": {
         "blog": "blog",
-        "work": ":work",
+        "blogTooltip": "Click on an blogwork",
+        "work": "work",
         "blog1": {
             "blog": "frost",
             "subtitle": "docker networking"
@@ -59,7 +64,7 @@
     },
     "Repos": {
         "code": "code",
-        "work": ":work"
+        "work": "work"
     },
     "Supporters": {
         "supporters": "supporters",

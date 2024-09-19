@@ -1,7 +1,12 @@
+'use client'
+
+import { useTranslations } from "next-intl";
 import Tooltip from "../atoms/Tooltip";
 import BlogGrid from "../molecules/BlogGrid";
 
 const Blog: React.FC = () => {
+  const t = useTranslations("Blog");
+
   return (
     <section>
       <div
@@ -9,9 +14,9 @@ const Blog: React.FC = () => {
         text-transparent"
         id="aw"
       >
-        <Tooltip tip="Click on an blogwork">
+        <Tooltip tip={t("blogTooltip")}>
           <h2 className="inline-block mb-4">
-            <span className="text-accent">blog</span>:work
+            <span className="text-accent">{t("blog")}</span>:{t("work")}
           </h2>
         </Tooltip>
       </div>

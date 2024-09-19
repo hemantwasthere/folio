@@ -13,11 +13,13 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
+  let src = href === "#home" ? "home" : href === "#about" ? "about" : "work";
+
   return (
     <Link
       href={href}
       className={cn(
-        "no-underline list-none font-jetbrains rounded-[100px] active:scale-95 offset_ring"
+        "no-underline list-none font-jetbrains rounded-[100px] active:scale-95 offset_ring shrink-0"
       )}
       onClick={() => {
         posthog.capture(`"${href}" clicked`, {
@@ -26,7 +28,7 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
       }}
     >
       <div
-        className="bg-transparent hover:bg-transparent border-none text-text_secondary text-[1.1rem] select-none flex flex-col items-center gap-[.75rem] py-[13px] px-[25px] rounded-[100px] cursor-pointer md:hover:bg-elevation_four group"
+        className="bg-transparent hover:bg-transparent border-none text-text_secondary text-[1.1rem] select-none flex flex-col items-center gap-[.75rem] py-[13px] sm:px-[25px] rounded-[100px] cursor-pointer md:hover:bg-elevation_four group"
         style={{
           transition:
             "background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -50,8 +52,8 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
                 "opacity-100 text-text_primary": isSelected,
               }
             )}
-            src={`/icons/${section === "/" ? "home" : section}.svg`}
-            alt={section}
+            src={`/icons/${src}.svg`}
+            alt={src}
             width={24}
             height={24}
             style={{

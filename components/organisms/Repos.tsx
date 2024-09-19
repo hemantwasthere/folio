@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
@@ -9,6 +10,7 @@ import { Repo } from "@/types";
 
 const Repos: React.FC = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
+  const t = useTranslations("Repos");
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -24,7 +26,7 @@ const Repos: React.FC = () => {
     <section className="wrapper pb-5 md:pb-0" id="work">
       <div className="title flex justify-start mt-0 md:justify-center">
         <h2 className="inline-block mb-4">
-          <span className="text-accent">code</span>:work
+          <span className="text-accent">{t("code")}</span>:{t("work")}
         </h2>
       </div>
 
