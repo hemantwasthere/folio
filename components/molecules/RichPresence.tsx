@@ -159,7 +159,7 @@ const RichPresence: React.FC = () => {
       <div className=" gap-9 items-center font-jetbrains grid grid-cols-12">
         <div className="mt-1 relative w-[100px] h-[100px] md:w-[135px] md:h-[135px] col-span-4">
           <Image
-            src={activityImage}
+            src={activityImage ?? "/question_mark.png"}
             alt={activity}
             fill
             className={cn("rounded-[20px] relative select-none", {
@@ -172,7 +172,7 @@ const RichPresence: React.FC = () => {
 
           {smallImage && (
             <Image
-              src={smallImage}
+              src={smallImage ?? "/question_mark.png"}
               alt={activity}
               width={40}
               height={40}
@@ -195,7 +195,7 @@ const RichPresence: React.FC = () => {
                 });
               }}
             >
-              <Tooltip tip="Open Spotify">
+              <Tooltip tip="Open Spotify" tabIndex={2}>
                 <h3 className="font-spacegrotesk ">{activity}</h3>
               </Tooltip>
             </Link>

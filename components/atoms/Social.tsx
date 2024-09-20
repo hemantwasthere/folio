@@ -13,24 +13,24 @@ interface SocialProps {
 }
 
 const Social: React.FC<SocialProps> = ({ tip, link, children }) => {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const ref = useRef(null);
 
   // checking if the link has focus state or not
-  useEffect(() => {
-    const handleFocus = () => setActive(true);
-    const handleBlur = () => setActive(false);
+  // useEffect(() => {
+  //   const handleFocus = () => setActive(true);
+  //   const handleBlur = () => setActive(false);
 
-    const current = ref?.current! as HTMLAnchorElement;
+  //   const current = ref?.current! as HTMLAnchorElement;
 
-    current?.addEventListener("focus", handleFocus);
-    current?.addEventListener("blur", handleBlur);
+  //   current?.addEventListener("focus", handleFocus);
+  //   current?.addEventListener("blur", handleBlur);
 
-    return () => {
-      current?.removeEventListener("focus", handleFocus);
-      current?.removeEventListener("blur", handleBlur);
-    };
-  }, [active]);
+  //   return () => {
+  //     current?.removeEventListener("focus", handleFocus);
+  //     current?.removeEventListener("blur", handleBlur);
+  //   };
+  // }, [active]);
 
   const getIconName = () => {
     if (link.includes("github")) return "github";
@@ -40,7 +40,7 @@ const Social: React.FC<SocialProps> = ({ tip, link, children }) => {
   };
 
   return (
-    <Tooltip tip={tip} active={active}>
+    <Tooltip tip={tip} tabIndex={2}>
       <div className="transition-all group">
         <Link
           onClick={() => {

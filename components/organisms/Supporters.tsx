@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +15,13 @@ const Supporters: React.FC = () => {
   const supporters = getSupportersData();
 
   return (
-    <section className="wrapper">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.3, ease: "linear" } }}
+      transition={{ duration: 0.3, ease: "linear" }}
+      className="wrapper"
+    >
       <div className="flex flex-col items-start md:items-center mt-0 mb-6">
         <h2>{t("supporters")}</h2>
         <p>{t("thankyou")}!</p>
@@ -23,7 +30,7 @@ const Supporters: React.FC = () => {
       <div className="flex flex-wrap justify-start gap-8 mb-12 md:justify-center">
         {supporters.map(({ name, icon, href, message }, i) => (
           <div key={name}>
-            <Tooltip tip={message}>
+            <Tooltip tip={message} tabIndex={2}>
               <div className="flex flex-col items-center gap-2">
                 <Link
                   href={href}
@@ -48,7 +55,7 @@ const Supporters: React.FC = () => {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
