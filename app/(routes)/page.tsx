@@ -6,12 +6,15 @@ import Repos from "@/components/organisms/Repos";
 import Supporters from "@/components/organisms/Supporters";
 import Timeline from "@/components/organisms/Timeline";
 import { timelines } from "@/data/timeline";
+import { getUserLocale } from "@/services/locale";
 
-export default function Home() {
+export default async function Home() {
+  const currentLocale = await getUserLocale()
+
   return (
     <div className="">
       <Hero />
-      <About />
+      <About currentLocale={currentLocale} />
       <Blog />
       <Repos />
       <Supporters />

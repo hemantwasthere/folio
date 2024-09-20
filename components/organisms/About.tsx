@@ -1,14 +1,29 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-
-import Tooltip from "@/components/atoms/Tooltip";
+import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import posthog from "posthog-js";
+import React, { useEffect, useState, useTransition } from "react";
+
+import Tooltip from "@/components/atoms/Tooltip";
+import { setUserLocale } from "@/services/locale";
 import RichPresence from "../molecules/RichPresence";
 
-const About: React.FC = () => {
+interface AboutProps {
+  currentLocale: string;
+}
+
+const About: React.FC<AboutProps> = ({ currentLocale }) => {
   const [age, setAge] = useState<ReturnType<typeof getAge>>();
+  const t = useTranslations("About");
+
+
+  const [isPending, startTransition] = useTransition();
+
+  const locale = useLocale();
+
+  console.log(currentLocale)
 
   // i didnt write this idk
   const getAge = () => {
@@ -26,33 +41,35 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.3, ease: "linear" } }}
+      transition={{ duration: 0.3, ease: "linear" }}
+
       id="about"
       className="wrapper flex flex-col md:flex-row mb-24 md:grid grid-cols-[1fr_1fr] md:items-center gap-16"
     >
-      <div>
-        <RichPresence />
-      </div>
+
+      <RichPresence />
+
       <div
         className="relative leading-[1.75rem] 
             before:content-['hem'] before:h-[300px] before:text-[150px] before:font-[700] before:-z-10 before:select-none before:translate-x-[130%] before:translate-y-[8%] webkit_text_stroke before:opacity-[0.22] before:absolute
-            after:content-['ant'] after:h-[300px] after:text-[200px] after:font-[700] after:-z-10 after:select-none after:translate-x-[140%] after:translate-y-[-35%] webkit_text_stroke_after after:opacity-[0.22] after:absolute
-            "
+            after:content-['ant'] after:h-[300px] after:text-[200px] after:font-[700] after:-z-10 after:select-none after:translate-x-[140%] after:translate-y-[-35%] webkit_text_stroke_after after:opacity-[0.22] after:absolute"
       >
         <h2 className="md:hidden mb-4 md:mt-4 md:mb-0">bio</h2>
         <div className="text-text_secondary font-[300] text-[1.1rem] tracking-[-0rem] leading-[1.75rem]">
-          Hey there, I&rsquo;m Hemant! :] I&rsquo;m a{" "}
+          {t("about1")}{" "}
           {age && (
-            <Tooltip tip={age}>
+            <Tooltip tip={age} tabIndex={3}>
               <span className="bio_span">{Math.floor(Number(age))}</span>
             </Tooltip>
-          )}{" "}
-          year old frontend developer and freelancer based in India. I&rsquo;ve
-          taken coding seriously since <span className="bio_span">2021</span>,
-          and have been freelancing since <span className="bio_span">2022</span>
-          . Recently, however, I&rsquo;ve grown a knack for giving back to
-          community. I like contributing to{" "}
-          <Tooltip tip="🤓">
+          )}
+          {" "}{t("about2")}{" "}<span className="bio_span">2021</span>{" "}
+          {t("about3")}<span className="bio_span">2022</span>{" "}
+          {t("about4")}{" "}
+          <Tooltip tip="🤓" tabIndex={2}>
             <Link
               className="no-underline offset_ring rounded-[7px]"
               href="https://github.com/hemantwasthere"
@@ -63,15 +80,43 @@ const About: React.FC = () => {
                   Clicked: true,
                 });
               }}
-            >
-              <span className="bio_span">open source</span>
+            > <span className="bio_span">open source</span>
             </Link>
           </Tooltip>{" "}
-          as a web developer, which is probably the reason why you&rsquo;ve
-          ended up here. Currently struggling with blockchain and rust.
+
+          {t("about5")}
+
+          {currentLocale === "ja" && (
+            <Tooltip tip="🦀 yoo, u've found an easter 🥚!">
+              <button tabIndex={-1} className="hover:underline" onClick={() => {
+                startTransition(() => {
+                  setUserLocale(locale === "en" ? "ja" : "en");
+                });
+              }}>
+                rust
+              </button>
+            </Tooltip>
+          )}
+
+          {t("about6")}
+
+          {currentLocale === "en" && (
+            <>
+              <Tooltip tip="🦀 demn, u've found another easter 🥚 too!">
+                <button tabIndex={-1} className="hover:underline" onClick={() => {
+                  startTransition(() => {
+                    setUserLocale(locale === "en" ? "ja" : "en");
+                  });
+                }}>
+                  rust
+                </button>
+              </Tooltip>
+              .
+            </>
+          )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

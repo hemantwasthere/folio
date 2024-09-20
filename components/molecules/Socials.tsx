@@ -4,7 +4,7 @@ import { user } from "@/lib/utils";
 const Socials: React.FC = () => {
   return (
     <div className="flex gap-[.75rem]">
-      <Social tip="hemantwasthere" link="https://github.com/hemantwasthere">
+      <Social tip="@hemantwasthere" link="https://github.com/hemantwasthere">
         <svg
           width="24px"
           height="24px"
@@ -24,7 +24,7 @@ const Socials: React.FC = () => {
           ></path>
         </svg>
       </Social>
-      <Social tip={user.username} link={`https://discord.com/users/${user.id}`}>
+      <Social tip={`@${user.username}`} link={`https://discord.com/users/${user.id}`}>
         <svg
           width="24px"
           height="24px"
@@ -86,7 +86,7 @@ const Socials: React.FC = () => {
           ></path>
         </svg>
       </Social>
-      <Social tip="xebec" link="https://www.buymeacoffee.com/xebec">
+      <Social tip="@xebec" link="https://www.buymeacoffee.com/xebec">
         <svg
           width="24px"
           height="24px"

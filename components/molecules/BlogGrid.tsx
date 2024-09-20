@@ -1,6 +1,10 @@
+import { useTranslations } from "next-intl";
+
 import Blogwork from "../atoms/Blogwork";
 
 const BlogGrid = () => {
+  const t = useTranslations("Blog");
+
   return (
     <div className="flex justify-center mb-16">
       <div
@@ -10,7 +14,9 @@ const BlogGrid = () => {
         }}
       >
         <Blogwork
-          blog="frost"
+          src="frost"
+          blog={t("blog1.blog")}
+          subtitle={t("blog1.subtitle")}
           tall
           subtitle="docker networking"
           link="https://blog.hemant.lol/docker"
@@ -21,7 +27,9 @@ const BlogGrid = () => {
           link="https://blog.hemant.lol/graphql"
         />
         <Blogwork
-          blog="rain"
+          src="rain"
+          blog={t("blog3.blog")}
+          subtitle={t("blog3.subtitle")}
           tall
           subtitle="kafka"
           link="https://blog.hemant.lol/kafka"
@@ -32,19 +40,25 @@ const BlogGrid = () => {
           link="https://blog.hemant.lol/whisper"
         />
         <Blogwork
-          blog="makima"
+          src="makima"
+          blog={t("blog5.blog")}
+          subtitle={t("blog5.subtitle")}
           tall
           subtitle="cloudflare"
           link="https://blog.hemant.lol/cloudflare"
         />
         <Blogwork
-          blog="ghost"
+          src="ghost"
+          blog={t("blog6.blog")}
+          subtitle={t("blog6.subtitle")}
           tall
           subtitle="moving gradients"
           link="https://blog.hemant.lol/moving-gradients"
         />
         <Blogwork
-          blog="yoru"
+          src="yoru"
+          blog={t("blog7.blog")}
+          subtitle={t("blog7.subtitle")}
           tall
           shrink
           commission
@@ -52,7 +66,9 @@ const BlogGrid = () => {
           link="https://blog.hemant.lol/grid"
         />
         <Blogwork
-          blog="nisu"
+          src="nisu"
+          blog={t("blog8.blog")}
+          subtitle={t("blog8.subtitle")}
           tall
           subtitle="zustand"
           link="https://blog.hemant.lol/zustand"
