@@ -143,9 +143,13 @@ const RichPresence: React.FC = () => {
           ? "Do Not Disturb"
           : data?.discord_status!
       );
+
       setActivityImage(
-        `https://cdn.discordapp.com/avatars/${user.id}/${data?.discord_user.avatar}.png?size=512`
+        data?.discord_user.avatar
+          ? `https://cdn.discordapp.com/avatars/${user.id}/${data?.discord_user.avatar}.png?size=512`
+          : "/question_mark.png"
       );
+
       setSmallImage("");
       tick();
     }
@@ -159,7 +163,7 @@ const RichPresence: React.FC = () => {
       <div className=" gap-9 items-center font-jetbrains grid grid-cols-12">
         <div className="mt-1 relative w-[100px] h-[100px] md:w-[135px] md:h-[135px] col-span-4">
           <Image
-            src={activityImage ?? "/question_mark.png"}
+            src={activityImage}
             alt={activity}
             fill
             className={cn("rounded-[20px] relative select-none", {
