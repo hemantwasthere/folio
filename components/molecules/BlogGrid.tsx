@@ -18,40 +18,42 @@ const BlogGrid = () => {
           blog={t("blog1.blog")}
           subtitle={t("blog1.subtitle")}
           tall
-          link="https://blog.hemant.social/docker"
+          subtitle="docker networking"
+          link="https://blog.hemant.lol/docker"
         />
         <Blogwork
-          src="deep"
-          blog={t("blog2.blog")}
-          subtitle={t("blog2.subtitle")}
-          link="https://blog.hemant.social/graphql"
+          blog="deep"
+          subtitle="graphql"
+          link="https://blog.hemant.lol/graphql"
         />
         <Blogwork
           src="rain"
           blog={t("blog3.blog")}
           subtitle={t("blog3.subtitle")}
           tall
-          link="https://blog.hemant.social/kafka"
+          subtitle="kafka"
+          link="https://blog.hemant.lol/kafka"
         />
         <Blogwork
-          src="purp"
-          blog={t("blog4.blog")}
-          subtitle={t("blog4.subtitle")}
-          link="https://blog.hemant.social/whisper"
+          blog="purp"
+          subtitle="whisper"
+          link="https://blog.hemant.lol/whisper"
         />
         <Blogwork
           src="makima"
           blog={t("blog5.blog")}
           subtitle={t("blog5.subtitle")}
           tall
-          link="https://blog.hemant.social/cloudflare"
+          subtitle="cloudflare"
+          link="https://blog.hemant.lol/cloudflare"
         />
         <Blogwork
           src="ghost"
           blog={t("blog6.blog")}
           subtitle={t("blog6.subtitle")}
           tall
-          link="https://blog.hemant.social/moving-gradients"
+          subtitle="moving gradients"
+          link="https://blog.hemant.lol/moving-gradients"
         />
         <Blogwork
           src="yoru"
@@ -60,26 +62,26 @@ const BlogGrid = () => {
           tall
           shrink
           commission
-          link="https://blog.hemant.social/grid"
+          subtitle="grid"
+          link="https://blog.hemant.lol/grid"
         />
         <Blogwork
           src="nisu"
           blog={t("blog8.blog")}
           subtitle={t("blog8.subtitle")}
           tall
-          link="https://blog.hemant.social/zustand"
+          subtitle="zustand"
+          link="https://blog.hemant.lol/zustand"
         />
         <Blogwork
-          src="lost"
-          blog={t("blog9.blog")}
-          subtitle={t("blog9.subtitle")}
-          link="https://blog.hemant.social/drag-n-drop"
+          blog="lost"
+          subtitle="dnd"
+          link="https://blog.hemant.lol/drag-n-drop"
         />
         <Blogwork
-          src="momi"
-          blog={t("blog10.blog")}
-          subtitle={t("blog10.subtitle")}
-          link="https://blog.hemant.social/evolution-of-frontend-development"
+          blog="momi"
+          subtitle="evolution"
+          link="https://blog.hemant.lol/evolution-of-frontend-development"
         />
       </div>
     </div>

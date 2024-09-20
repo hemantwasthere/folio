@@ -26,7 +26,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
   tall = false,
   shrink = false,
   commission = false,
-  link = "https://blog.hemant.social",
+  link = "https://blog.hemant.lol",
 }) => {
   const [clicked, setClicked] = useState(false);
 
@@ -136,7 +136,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 id="open"
-                className="open_new_window_icon h-[20px] transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-[1.3] group-hover:ml-2"
+                className="open_new_window_icon h-[20px] transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-[1] group-hover:ml-2"
               >
                 <path
                   d="M21 3h-6m6 0l-9 9m9-9v6"
