@@ -14,8 +14,12 @@ const ThemeToggle = () => {
   if (!isMounted) return null;
 
   return (
-    <Tooltip tip="🌕 yoo, u've found an easter 🥚" className="absolute right-[63.7%] -top-4 md:right-[21%] md:-top-2">
+    <Tooltip
+      tip="🌕 yoo, u've found an easter 🥚"
+      className="absolute right-[63.7%] -top-4 md:right-[21%] md:-top-2"
+    >
       <button
+        tabIndex={-1}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         className="w-6 h-6 rounded-full animate-bounce delay-500 border-4 transition-all bg-[#ffeccf] border-[#ffbb52] dark:bg-[#bc938c] dark:border-[#845443] offset_ring"
       />
