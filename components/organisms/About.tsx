@@ -18,12 +18,11 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
   const [age, setAge] = useState<ReturnType<typeof getAge>>();
   const t = useTranslations("About");
 
-
   const [isPending, startTransition] = useTransition();
 
   const locale = useLocale();
 
-  console.log(currentLocale)
+  console.log(currentLocale);
 
   // i didnt write this idk
   const getAge = () => {
@@ -46,11 +45,9 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.3, ease: "linear" } }}
       transition={{ duration: 0.3, ease: "linear" }}
-
       id="about"
       className="wrapper flex flex-col md:flex-row mb-24 md:grid grid-cols-[1fr_1fr] md:items-center gap-16"
     >
-
       <RichPresence />
 
       <div
@@ -65,10 +62,9 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
             <Tooltip tip={age} tabIndex={3}>
               <span className="bio_span">{Math.floor(Number(age))}</span>
             </Tooltip>
-          )}
-          {" "}{t("about2")}{" "}<span className="bio_span">2021</span>{" "}
-          {t("about3")}<span className="bio_span">2022</span>{" "}
-          {t("about4")}{" "}
+          )}{" "}
+          {t("about2")} <span className="bio_span">2021</span> {t("about3")}
+          <span className="bio_span">2022</span> {t("about4")}{" "}
           <Tooltip tip="🤓" tabIndex={2}>
             <Link
               className="no-underline offset_ring rounded-[7px]"
@@ -80,34 +76,40 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
                   Clicked: true,
                 });
               }}
-            > <span className="bio_span">open source</span>
+            >
+              {" "}
+              <span className="bio_span">open source</span>
             </Link>
           </Tooltip>{" "}
-
           {t("about5")}
-
           {currentLocale === "ja" && (
-            <Tooltip tip="🦀 yoo, u've found an easter 🥚!">
-              <button tabIndex={-1} className="hover:underline" onClick={() => {
-                startTransition(() => {
-                  setUserLocale(locale === "en" ? "ja" : "en");
-                });
-              }}>
+            <Tooltip tip="<- go back to 英語 (english)">
+              <button
+                tabIndex={-1}
+                className="hover:underline"
+                onClick={() => {
+                  startTransition(() => {
+                    setUserLocale("en");
+                  });
+                }}
+              >
                 rust
               </button>
             </Tooltip>
           )}
-
           {t("about6")}
-
           {currentLocale === "en" && (
             <>
-              <Tooltip tip="🦀 demn, u've found another easter 🥚 too!">
-                <button tabIndex={-1} className="hover:underline" onClick={() => {
-                  startTransition(() => {
-                    setUserLocale(locale === "en" ? "ja" : "en");
-                  });
-                }}>
+              <Tooltip tip="🦀 Pro, u've found another easter 🥚 too!">
+                <button
+                  tabIndex={-1}
+                  className="hover:underline"
+                  onClick={() => {
+                    startTransition(() => {
+                      setUserLocale("ja");
+                    });
+                  }}
+                >
                   rust
                 </button>
               </Tooltip>
