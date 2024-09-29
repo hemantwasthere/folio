@@ -24,7 +24,10 @@ const Socials: React.FC = () => {
           ></path>
         </svg>
       </Social>
-      <Social tip={`@${user.username}`} link={`https://discord.com/users/${user.id}`}>
+      <Social
+        tip={`@${user.username}`}
+        link={`https://discord.com/users/${user.id}`}
+      >
         <svg
           width="24px"
           height="24px"
@@ -58,6 +61,27 @@ const Socials: React.FC = () => {
           ></path>
         </svg>
       </Social>
+      <Social tip="@hemantwasthere" link="https://x.com/hemantwasthere">
+        <svg
+          shape-rendering="geometricPrecision"
+          text-rendering="geometricPrecision"
+          image-rendering="optimizeQuality"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          viewBox="0 0 512 462.799"
+          width="20px"
+          height="20px"
+          className="social_svg"
+          strokeWidth="1.5"
+          fill="#dba895"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="nonzero"
+            d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"
+          />
+        </svg>
+      </Social>
       <Social
         tip="hemant.is.there@gmail.com"
         link="mailto:hemant.is.there@gmail.com"
@@ -83,33 +107,6 @@ const Socials: React.FC = () => {
             d="M2 17V7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2z"
             stroke="#dba895"
             strokeWidth="1.5"
-          ></path>
-        </svg>
-      </Social>
-      <Social tip="@xebec" link="https://www.buymeacoffee.com/xebec">
-        <svg
-          width="24px"
-          height="24px"
-          className="social_svg"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          color="#dba895"
-        >
-          <path
-            d="M17 11.6V15a6 6 0 01-6 6H9a6 6 0 01-6-6v-3.4a.6.6 0 01.6-.6h12.8a.6.6 0 01.6.6zM12 9c0-1 .714-2 2.143-2v0A2.857 2.857 0 0017 4.143V3.5M8 9v-.5a3 3 0 013-3v0a2 2 0 002-2V3"
-            stroke="#dba895"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
-          <path
-            d="M16 11h2.5a2.5 2.5 0 010 5H17"
-            stroke="#dba895"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           ></path>
         </svg>
       </Social>
