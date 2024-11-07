@@ -71,11 +71,15 @@
         "supporters": "サポーター",
         "thankyou": "ありがとう",
         "supporter1": {
-            "name": "ピユシュ・ガルグ",
+            "name": "ピユシュ",
             "message": "こんにちは"
         },
         "supporter2": {
-            "name": "ヴェダント・ジェイン",
+            "name": "アキラ",
+            "message": "こんにちは"
+        },
+        "supporter3": {
+            "name": "アキラ",
             "message": "こんにちは"
         }
     },

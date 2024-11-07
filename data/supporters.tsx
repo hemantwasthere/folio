@@ -13,9 +13,15 @@ export function getSupportersData() {
     },
     {
       name: t("supporter2.name"),
-      icon: "/supporters/vedant.jpeg",
-      href: "https://x.com/_vedantjain",
+      icon: "/supporters/akira.jpeg",
+      href: "https://x.com/akiraonstarknet",
       message: t("supporter2.message"),
+    },
+    {
+      name: t("supporter3.name"),
+      icon: "/supporters/manu.jpeg",
+      href: "https://x.com/mannupaaji",
+      message: t("supporter3.message"),
     },
   ];
 }

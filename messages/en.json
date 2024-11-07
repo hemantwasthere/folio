@@ -71,11 +71,15 @@
         "supporters": "supporters",
         "thankyou": "Thank you",
         "supporter1": {
-            "name": "Piyush Garg",
+            "name": "Piyush",
             "message": "hi"
         },
         "supporter2": {
-            "name": "Vedant Jain",
+            "name": "Akira",
+            "message": "hi"
+        },
+        "supporter3": {
+            "name": "Manu",
             "message": "hi"
         }
     },
