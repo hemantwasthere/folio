@@ -19,7 +19,7 @@ export function getSupportersData() {
     },
     {
       name: t("supporter3.name"),
-      icon: "/supporters/manu.jpeg",
+      icon: "/supporters/manu.jpg",
       href: "https://x.com/mannupaaji",
       message: t("supporter3.message"),
     },
