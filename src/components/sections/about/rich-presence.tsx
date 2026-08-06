@@ -27,6 +27,32 @@ const avatarUrl = (hash: string | null | undefined) =>
 const assetUrl = (applicationId: string | undefined, asset: string) =>
   `https://cdn.discordapp.com/app-assets/${applicationId}/${asset}.webp?size=512`;
 
+/**
+ * The "no artwork yet" square. The PNG has the old warm accent baked into it,
+ * so it is used purely as a mask and painted with `--accent` instead — the
+ * artwork keeps its own two alpha levels (frame at 40%, glyph at 80%) while the
+ * colour now follows whichever theme is active.
+ */
+function PlaceholderArt({ title }: { title: string }) {
+  return (
+    <div
+      role="img"
+      aria-label={title}
+      className="absolute inset-0 select-none bg-accent"
+      style={{
+        maskImage: `url(${PLACEHOLDER})`,
+        WebkitMaskImage: `url(${PLACEHOLDER})`,
+        maskSize: "contain",
+        WebkitMaskSize: "contain",
+        maskRepeat: "no-repeat",
+        WebkitMaskRepeat: "no-repeat",
+        maskPosition: "center",
+        WebkitMaskPosition: "center",
+      }}
+    />
+  );
+}
+
 /** "hh:mm:ss elapsed", dropping the hours segment while it is still zero. */
 function formatElapsed(ms: number) {
   const stamp = new Date(ms).toISOString().slice(11, 19);
@@ -154,17 +180,21 @@ const RichPresence: React.FC = () => {
       <h2 className="md:hidden">activity</h2>
       <div className=" gap-9 items-center font-jetbrains grid grid-cols-12">
         <div className="mt-1 relative w-25 h-25 md:w-33.75 md:h-33.75 col-span-4">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className={cn("rounded-[20px] relative select-none", {
-              "animate-[spin_40s_linear_infinite] rounded-[100%]": isSpotify,
-            })}
-            style={{
-              transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-            }}
-          />
+          {image === PLACEHOLDER ? (
+            <PlaceholderArt title={title} />
+          ) : (
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className={cn("rounded-[20px] relative select-none", {
+                "animate-[spin_40s_linear_infinite] rounded-[100%]": isSpotify,
+              })}
+              style={{
+                transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              }}
+            />
+          )}
 
           {smallImage && (
             <Image
