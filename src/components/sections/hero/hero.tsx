@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         false && 'pointer-events-none opacity-60')}
     >
       <div className="relative w-fit">
-        <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:tracking-[-.1em] before:absolute text-[65px] md:text-[96px] text-text_primary font-semibold w-fit'>
+        <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:-tracking-widest before:absolute text-[65px] md:text-[96px] text-text_primary font-semibold w-fit'>
           {t("name")}
         </h1>
         <ThemeToggle />

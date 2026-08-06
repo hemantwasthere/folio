@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import React, { useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 const HeroImage: React.FC = () => {
   const [zoom, setZoom] = useState<boolean>(false);
@@ -33,9 +34,8 @@ const HeroImage: React.FC = () => {
         )}
         style={{
           transform: `
-                    perspective(500px) ${zoom ? "scale(1.05)" : ""} rotateX(${
-            rotate.x
-          }deg) rotateY(${rotate.y}deg)
+                    perspective(500px) ${zoom ? "scale(1.05)" : ""} rotateX(${rotate.x
+            }deg) rotateY(${rotate.y}deg)
                     `,
           transition:
             "width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",

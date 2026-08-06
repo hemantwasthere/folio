@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
       transition={{ duration: 0.3, ease: "linear" }}
       className="wrapper"
     >
-      <hr className="h-0.25 border-none w-full mb-6 md:mb-8 bg-elevation_one" />
+      <hr className="h-px border-none w-full mb-6 md:mb-8 bg-elevation_one" />
       <div className="pb-[2.4rem] flex flex-col justify-between items-center md:flex-row">
         <Socials />
         <h6 className="text-center leading-10 mt-0 font-jetbrains">

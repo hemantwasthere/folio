@@ -130,10 +130,10 @@
 
 @layer utilities {
   .bio_span {
-    @apply font-normal font-jetbrains text-[.9rem] bg-elevation_one rounded-[7px] text-accent py-[.2rem] px-[.5rem] w-fit;
+    @apply font-normal font-jetbrains text-[.9rem] bg-elevation_one rounded-[7px] text-accent py-[.2rem] px-2 w-fit;
   }
   .repo_card {
-    @apply py-4 px-6 bg-elevation_two rounded-[8px] min-h-[140px] h-full flex flex-col gap-[.25rem] justify-between backdrop-blur-sm bg-blend-overlay border border-elevation_four hover:translate-y-[-2px];
+    @apply py-4 px-6 bg-elevation_two rounded-lg min-h-35 h-full flex flex-col gap-1 justify-between backdrop-blur-sm bg-blend-overlay border border-elevation_four hover:-translate-y-0.5;
   }
   .timeline_card {
     @apply flex items-center space-x-3 bg-elevation_two/75 backdrop-blur-sm px-2 py-3 border-2 border-elevation_four rounded-lg;

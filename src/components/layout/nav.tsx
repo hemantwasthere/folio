@@ -6,6 +6,7 @@ import posthog from "posthog-js";
 import React from "react";
 
 import { cn } from "@/lib/utils";
+
 interface NavProps {
   href: string;
   section: string;

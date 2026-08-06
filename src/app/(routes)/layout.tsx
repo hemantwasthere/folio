@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import Cursor from "@/components/ui/Cursor";
-import ResumeButton from "@/components/layout/ResumeButton";
-import NavHost from "@/components/layout/NavHost";
+import Cursor from "@/components/ui/cursor";
+import ResumeButton from "@/components/layout/resume-button";
+import NavHost from "@/components/layout/nav-host";
 
 export default function PageLayout({
   children,

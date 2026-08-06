@@ -15,7 +15,7 @@ const ThemeToggle = () => {
       <button
         tabIndex={-1}
         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-        className="w-6 h-6 rounded-full animate-bounce delay-500 border-4 transition-all bg-[var(--toggle-fill)] border-[var(--toggle-ring)] offset_ring"
+        className="w-6 h-6 rounded-full animate-bounce delay-500 border-4 transition-all bg-(--toggle-fill) border-(--toggle-ring) offset_ring"
       />
     </Tooltip>
   );

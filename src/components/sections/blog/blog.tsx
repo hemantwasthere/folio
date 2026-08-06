@@ -17,7 +17,7 @@ const Blog: React.FC = () => {
       transition={{ duration: 0.3, ease: "linear" }}
     >
       <div
-        className="wrapper flex justify-start mt-0 !mb-[0.3rem] md:mb-0 md:justify-center before:content-['&&'] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-25%] before:translate-y-[-20%] sm:before:translate-x-[-310%] sm:before:translate-y-[-28%] webkit_text_stroke before:opacity-25 before:tracking-[-0.075em] before:absolute
+        className="wrapper flex justify-start mt-0 mb-[0.3rem]! md:mb-0 md:justify-center before:content-['&&'] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-25%] before:translate-y-[-20%] sm:before:translate-x-[-310%] sm:before:translate-y-[-28%] webkit_text_stroke before:opacity-25 before:tracking-[-0.075em] before:absolute
         text-transparent"
         id="aw"
       >
