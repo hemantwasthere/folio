@@ -25,11 +25,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Matches the dark default above, so the browser chrome does not flash a light
+// bar over a dark page for visitors whose OS is set to light.
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#dce5e6" },
-    { media: "(prefers-color-scheme: dark)", color: "#181a1e" },
-  ],
+  themeColor: "#181a1e",
 };
 
 export default async function RootLayout({
@@ -43,7 +42,11 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="font-spacegrotesk relative">
         <PHProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* Dark is the default rather than "system": the palette and the hero
+              art are built for it, so a light-mode OS should not decide what a
+              first-time visitor sees. The toggle still sets an explicit theme,
+              which is remembered from then on. */}
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             <NextIntlClientProvider>{children}</NextIntlClientProvider>
           </ThemeProvider>
         </PHProvider>

@@ -28,8 +28,8 @@
      ships with macOS and Windows. The rest of the stack keeps the same
      handwritten flavour for everyone else: Bradley Hand on Apple platforms,
      Segoe Print on Windows, then a generic cursive for Linux and Android. */
-  --font-display: Papyrus, "Bradley Hand", "Segoe Print", "Brush Script MT",
-    cursive;
+  --font-display:
+    Papyrus, "Bradley Hand", "Segoe Print", "Brush Script MT", cursive;
 }
 
 @utility w-wclamp344 {
@@ -48,7 +48,8 @@
   font-family: "Space_Grotesk";
   font-style: normal;
   font-weight: 300;
-  src: url("../../public/fonts/space-grotesk-v15-latin-300.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/space-grotesk-v15-latin-300.woff2") format("woff2"),
     url("../../public/fonts/space-grotesk-v15-latin-300.woff") format("woff");
 }
 /* space-grotesk-regular */
@@ -57,9 +58,11 @@
   font-family: "Space_Grotesk";
   font-style: normal;
   font-weight: 400;
-  src: url("../../public/fonts/space-grotesk-v15-latin-regular.woff2")
+  src:
+    url("../../public/fonts/space-grotesk-v15-latin-regular.woff2")
       format("woff2"),
-    url("../../public/fonts/space-grotesk-v15-latin-regular.woff") format("woff");
+    url("../../public/fonts/space-grotesk-v15-latin-regular.woff")
+      format("woff");
 }
 /* space-grotesk-500 */
 @font-face {
@@ -67,7 +70,8 @@
   font-family: "Space_Grotesk";
   font-style: normal;
   font-weight: 500;
-  src: url("../../public/fonts/space-grotesk-v15-latin-500.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/space-grotesk-v15-latin-500.woff2") format("woff2"),
     url("../../public/fonts/space-grotesk-v15-latin-500.woff") format("woff");
 }
 /* space-grotesk-600 */
@@ -76,7 +80,8 @@
   font-family: "Space_Grotesk";
   font-style: normal;
   font-weight: 600;
-  src: url("../../public/fonts/space-grotesk-v15-latin-600.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/space-grotesk-v15-latin-600.woff2") format("woff2"),
     url("../../public/fonts/space-grotesk-v15-latin-600.woff") format("woff");
 }
 /* space-grotesk-700 */
@@ -85,7 +90,8 @@
   font-family: "Space_Grotesk";
   font-style: normal;
   font-weight: 700;
-  src: url("../../public/fonts/space-grotesk-v15-latin-700.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/space-grotesk-v15-latin-700.woff2") format("woff2"),
     url("../../public/fonts/space-grotesk-v15-latin-700.woff") format("woff");
 }
 /* ------------------------------------------------------------------------ */
@@ -95,7 +101,8 @@
   font-family: "JetBrains_Mono";
   font-style: normal;
   font-weight: 300;
-  src: url("../../public/fonts/jetbrains-mono-v18-latin-300.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/jetbrains-mono-v18-latin-300.woff2") format("woff2"),
     url("../../public/fonts/jetbrains-mono-v18-latin-300.woff") format("woff");
 }
 /* jetbrains-mono-regular */
@@ -104,9 +111,11 @@
   font-family: "JetBrains_Mono";
   font-style: normal;
   font-weight: 400;
-  src: url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff2")
+  src:
+    url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff2")
       format("woff2"),
-    url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff") format("woff");
+    url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff")
+      format("woff");
 }
 /* jetbrains-mono-500 */
 @font-face {
@@ -114,7 +123,8 @@
   font-family: "JetBrains_Mono";
   font-style: normal;
   font-weight: 500;
-  src: url("../../public/fonts/jetbrains-mono-v18-latin-500.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/jetbrains-mono-v18-latin-500.woff2") format("woff2"),
     url("../../public/fonts/jetbrains-mono-v18-latin-500.woff") format("woff");
 }
 /* jetbrains-mono-600 */
@@ -123,7 +133,8 @@
   font-family: "JetBrains_Mono";
   font-style: normal;
   font-weight: 600;
-  src: url("../../public/fonts/jetbrains-mono-v18-latin-600.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/jetbrains-mono-v18-latin-600.woff2") format("woff2"),
     url("../../public/fonts/jetbrains-mono-v18-latin-600.woff") format("woff");
 }
 /* jetbrains-mono-700 */
@@ -132,7 +143,8 @@
   font-family: "JetBrains_Mono";
   font-style: normal;
   font-weight: 700;
-  src: url("../../public/fonts/jetbrains-mono-v18-latin-700.woff2") format("woff2"),
+  src:
+    url("../../public/fonts/jetbrains-mono-v18-latin-700.woff2") format("woff2"),
     url("../../public/fonts/jetbrains-mono-v18-latin-700.woff") format("woff");
 }
 
@@ -179,7 +191,9 @@
   -webkit-mask-size: contain;
   mask-size: contain;
   opacity: var(--signature-opacity, 0.82);
-  transition: filter 0.18s ease, opacity 0.18s ease;
+  transition:
+    filter 0.18s ease,
+    opacity 0.18s ease;
 }
 
 .signature_item:hover .signature_ink,
@@ -249,11 +263,8 @@
 /* Graph paper behind the signing pad, so the canvas reads as something you
    write on. */
 .signature_pad {
-  background-image: linear-gradient(
-      to right,
-      var(--elevation-four) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, var(--elevation-four) 1px, transparent 1px),
     linear-gradient(to bottom, var(--elevation-four) 1px, transparent 1px);
   background-size: 22px 22px;
   background-color: var(--elevation-one);
