@@ -7,7 +7,7 @@ import Link from "next/link";
 import posthog from "posthog-js";
 
 import { useSupportersData } from "@/data/supporters";
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from "@/components/ui/tooltip";
 
 const Supporters: React.FC = () => {
   const t = useTranslations("Supporters");

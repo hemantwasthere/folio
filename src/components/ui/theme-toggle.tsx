@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-import Tooltip from "./Tooltip";
+import Tooltip from "./tooltip";
 
 const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme();

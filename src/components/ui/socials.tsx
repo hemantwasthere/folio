@@ -1,9 +1,9 @@
-import Social from "@/components/ui/Social";
+import Social from "@/components/ui/social";
 import { user } from "@/lib/utils";
 
 const Socials: React.FC = () => {
   return (
-    <div className="flex gap-[.75rem]">
+    <div className="flex gap-3">
       <Social tip="@hemantwasthere" link="https://github.com/hemantwasthere">
         <svg
           width="24px"

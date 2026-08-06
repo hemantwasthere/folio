@@ -31,7 +31,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
         </h2>
       </div>
 
-      <div className="gap-[.8rem] flex-col justify-center items-center grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] mb-8 md:mb-12 relative before:content-['𝝺'] before:h-[300px] before:text-[175px] before:-z-10 before:select-none before:translate-x-[1140%] before:translate-y-[-50%] webkit_text_stroke before:opacity-[0.25] before:tracking-[-0.075em] before:absolute">
+      <div className="gap-[.8rem] flex-col justify-center items-center grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] mb-8 md:mb-12 relative before:content-['𝝺'] before:h-75 before:text-[175px] before:-z-10 before:select-none before:translate-x-[1140%] before:translate-y-[-50%] webkit_text_stroke before:opacity-25 before:tracking-[-0.075em] before:absolute">
         {repos === null ? (
           <>
             <div className="repo_card shimmer" />
@@ -53,7 +53,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
                 forks,
               }) => (
                 <Link
-                  className="no-underline text-text_primary h-full rounded-[8px] offset_ring"
+                  className="no-underline text-text_primary h-full rounded-lg offset_ring"
                   href={link}
                   key={link}
                   target="_blank"
@@ -94,7 +94,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                           id="open"
-                          className="open_new_window_icon h-[20px] transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-[1.3]"
+                          className="open_new_window_icon h-5 transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-130"
                         >
                           <path
                             d="M21 3h-6m6 0l-9 9m9-9v6"
@@ -118,7 +118,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
                     <div className="flex items-center gap-4">
                       <div className="info flex gap-[.2rem] items-center">
                         <span
-                          className="dot h-[11px] w-[11px] rounded-[50%] inline-block text-accent"
+                          className="dot h-2.75 w-2.75 rounded-[50%] inline-block text-accent"
                           style={{ backgroundColor: languageColor }}
                         />
                         <h6 className="font-jetbrains">{language}</h6>
@@ -129,7 +129,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
                             <Image
                               width={16}
                               height={16}
-                              className="h-[16px] w-auto translate-y-[-1px]"
+                              className="h-4 w-auto -translate-y-0.25"
                               src="icons/star.svg"
                               id="star"
                               alt="star"
@@ -144,7 +144,7 @@ const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
                             <Image
                               width={16}
                               height={16}
-                              className="h-[17px]"
+                              className="h-4.25"
                               src="icons/fork.svg"
                               id="fork"
                               alt="fork"

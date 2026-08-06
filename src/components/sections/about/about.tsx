@@ -6,9 +6,9 @@ import Link from "next/link";
 import posthog from "posthog-js";
 import React, { useEffect, useState, useTransition } from "react";
 
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from "@/components/ui/tooltip";
 import { setUserLocale } from "@/services/locale";
-import RichPresence from "@/components/sections/about/RichPresence";
+import RichPresence from "@/components/sections/about/rich-presence";
 
 interface AboutProps {
   currentLocale: string;
@@ -50,12 +50,12 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
       <RichPresence />
 
       <div
-        className="relative leading-[1.75rem] 
-            before:content-['hem'] before:h-[300px] before:text-[150px] before:font-[700] before:-z-10 before:select-none before:translate-x-[130%] before:translate-y-[8%] webkit_text_stroke before:opacity-[0.22] before:absolute
-            after:content-['ant'] after:h-[300px] after:text-[200px] after:font-[700] after:-z-10 after:select-none after:translate-x-[140%] after:translate-y-[-35%] webkit_text_stroke_after after:opacity-[0.22] after:absolute"
+        className="relative leading-7 
+            before:content-['hem'] before:h-75 before:text-[150px] before:font-bold before:-z-10 before:select-none before:translate-x-[130%] before:translate-y-[8%] webkit_text_stroke before:opacity-22 before:absolute
+            after:content-['ant'] after:h-75 after:text-[200px] after:font-bold after:-z-10 after:select-none after:translate-x-[140%] after:translate-y-[-35%] webkit_text_stroke_after after:opacity-22 after:absolute"
       >
         <h2 className="md:hidden mb-4 md:mt-4 md:mb-0">bio</h2>
-        <div className="text-text_secondary font-[300] text-[1.1rem] tracking-[-0rem] leading-[1.75rem]">
+        <div className="text-text_secondary font-light text-[1.1rem] tracking-[-0rem] leading-7">
           {t("about1")}{" "}
           {age && (
             <Tooltip tip={age} tabIndex={3}>

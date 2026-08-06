@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import posthog from "posthog-js";
 
-import Tooltip from "@/components/ui/Tooltip";
-import Socials from "@/components/ui/Socials";
+import Tooltip from "@/components/ui/tooltip";
+import Socials from "@/components/ui/socials";
 
 const Footer: React.FC = () => {
   const t = useTranslations("Footer");
@@ -19,19 +19,19 @@ const Footer: React.FC = () => {
       transition={{ duration: 0.3, ease: "linear" }}
       className="wrapper"
     >
-      <hr className="h-[1px] border-none w-full mb-6 md:mb-8 bg-elevation_one" />
+      <hr className="h-0.25 border-none w-full mb-6 md:mb-8 bg-elevation_one" />
       <div className="pb-[2.4rem] flex flex-col justify-between items-center md:flex-row">
         <Socials />
         <h6 className="text-center leading-10 mt-0 font-jetbrains">
           {t("madewithpain")}. &#60;3
           <Tooltip tip={t("youarehere")} tabIndex={2}>
-            <span className="rounded-[7px] py-[0.15rem] px-[0.5rem] w-fit ml-4 mr-[0.4rem] font-jetbrains bg-elevation_one">
+            <span className="rounded-[7px] py-[0.15rem] px-2 w-fit ml-4 mr-[0.4rem] font-jetbrains bg-elevation_one">
               V2
             </span>
           </Tooltip>
           <Tooltip tip={t("howtodelete")} tabIndex={2}>
             <Link
-              className="transition-[0.3s_var(--bezier-one)] no-underline font-[0.9rem] rounded-[7px] py-[0.15rem] px-[0.5rem] hover:font-[400] hover:w-fit text-tex font-jetbrains hover:text-elevation_one hover:bg-accent offset_ring"
+              className="transition-[0.3s_var(--bezier-one)] no-underline font-[0.9rem] rounded-[7px] py-[0.15rem] px-2 hover:font-normal hover:w-fit text-tex font-jetbrains hover:text-elevation_one hover:bg-accent offset_ring"
               href="https://v1.hemant.lol"
               target="_blank"
               rel="noreferrer"

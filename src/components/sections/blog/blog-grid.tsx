@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import Blogwork from "@/components/sections/blog/Blogwork";
+import Blogwork from "@/components/sections/blog/blog-work";
 
 const BlogGrid = () => {
   const t = useTranslations("Blog");

@@ -1,6 +1,6 @@
 import { getPinnedRepos } from "@/lib/github";
 
-import Repos from "./Repos";
+import Repos from "./repos";
 
 /**
  * Server half of the code:work section. Sits behind a Suspense boundary in the

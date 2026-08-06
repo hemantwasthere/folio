@@ -3,11 +3,11 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-import DiscoverButton from "@/components/sections/hero/DiscoverButton";
-import HeroImage from "@/components/sections/hero/HeroImage";
-import Socials from "@/components/ui/Socials";
+import DiscoverButton from "@/components/sections/hero/discover-button";
+import HeroImage from "@/components/sections/hero/hero-image";
+import Socials from "@/components/ui/socials";
 import { cn } from "@/lib/utils";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const Hero: React.FC = () => {
   const t = useTranslations("Hero");
@@ -19,11 +19,11 @@ const Hero: React.FC = () => {
       exit={{ opacity: 0, transition: { duration: 0.3, ease: "linear" } }}
       transition={{ duration: 0.3, ease: "linear" }}
       id="home"
-      className={cn("wrapper scroll-mt-[20rem] block sm:flex justify-between items-center mb-[2.75rem] md:mb-[5.75rem] mt-[4rem] sm:mt-[5rem] md:mt-[6.5rem] lg:mt-[7rem]",
+      className={cn("wrapper scroll-mt-80 block sm:flex justify-between items-center mb-11 md:mb-23 mt-16 sm:mt-20 md:mt-26 lg:mt-28",
         false && 'pointer-events-none opacity-60')}
     >
       <div className="relative w-fit">
-        <h1 className='before:content-["///"] before:h-[300px] before:text-[175px] before:font-[700] before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-[0.25] before:tracking-[-.1em] before:absolute text-[65px] md:text-[96px] text-text_primary font-semibold w-fit'>
+        <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:tracking-[-.1em] before:absolute text-[65px] md:text-[96px] text-text_primary font-semibold w-fit'>
           {t("name")}
         </h1>
         <ThemeToggle />

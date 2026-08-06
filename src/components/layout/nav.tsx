@@ -28,7 +28,7 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
       }}
     >
       <div
-        className="bg-transparent hover:bg-transparent border-none text-text_secondary text-[1.1rem] select-none flex flex-col items-center gap-[.75rem] py-[13px] sm:px-[25px] rounded-[100px] cursor-pointer md:hover:bg-elevation_four group"
+        className="bg-transparent hover:bg-transparent border-none text-text_secondary text-[1.1rem] select-none flex flex-col items-center gap-3 py-3.25 sm:px-6.25 rounded-[100px] cursor-pointer md:hover:bg-elevation_four group"
         style={{
           transition:
             "background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -36,7 +36,7 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
       >
         <div
           className={cn(
-            "md:hidden delay-[.3s] py-[6px] px-[24px] rounded-[100px] md:p-0",
+            "md:hidden delay-300 py-1.5 px-6 rounded-[100px] md:p-0",
             {
               "bg-elevation_four": isSelected,
             }
@@ -47,7 +47,7 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
         >
           <Image
             className={cn(
-              "scale-[0.95] delay-[.3s] group-hover:text-text_primary group-hover:opacity-100 group-active:opacity-100 flex items-center justify-center opacity-50",
+              "scale-[0.95] delay-300 group-hover:text-text_primary group-hover:opacity-100 group-active:opacity-100 flex items-center justify-center opacity-50",
               {
                 "opacity-100 text-text_primary": isSelected,
               }
@@ -63,7 +63,7 @@ const Nav: React.FC<NavProps> = ({ href, section, isSelected }) => {
         </div>
         <h5
           className={cn(
-            "delay-[.5s] group-hover:text-text_primary group-hover:opacity-100 opacity-80",
+            "delay-500 group-hover:text-text_primary group-hover:opacity-100 opacity-80",
             {
               "text-text_primary opacity-100": isSelected,
             }

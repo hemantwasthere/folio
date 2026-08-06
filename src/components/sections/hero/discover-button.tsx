@@ -3,7 +3,7 @@
 import Link from "next/link";
 import posthog from "posthog-js";
 
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/button";
 
 const DiscoverButton = ({ buttonTitle }: { buttonTitle: string }) => {
   return (
