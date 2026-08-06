@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import "server-only";
 
 import type { Repo } from "@/types";
 
@@ -7,7 +7,7 @@ const MAX = 6;
 
 // Refresh at most once an hour. Keeps us well inside GitHub's unauthenticated
 // rate limit (60 req/hr per IP) no matter how much traffic the site gets.
-export const revalidate = 3600;
+const REVALIDATE = 3600;
 
 /**
  * Linguist colours for the languages used across the pinned repos, inlined on
@@ -92,19 +92,21 @@ async function fetchPinnedSlugs(): Promise<string[]> {
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
       Accept: "text/html",
     },
-    next: { revalidate },
+    next: { revalidate: REVALIDATE },
   });
 
   if (!res.ok) throw new Error(`GitHub profile responded ${res.status}`);
 
   const html = await res.text();
 
-  // Narrow to the pinned-items list before matching, so nothing else on the
-  // profile can be mistaken for a pin.
+  // Bound the search to the pinned <ol> itself. A fixed-size window would run
+  // past the closing tag into "Popular repositories", where an unpinned repo
+  // would be picked up as if it were a pin.
   const start = html.indexOf("js-pinned-items-reorder-list");
   if (start === -1) throw new Error("no pinned-items list on profile");
 
-  const region = html.slice(start, start + 40_000);
+  const end = html.indexOf("</ol>", start);
+  const region = html.slice(start, end === -1 ? undefined : end);
 
   const slugs: string[] = [];
   const anchor = /href="\/([\w.-]+\/[\w.-]+)"[^>]*class="[^"]*\bwb-break-word\b/g;
@@ -137,7 +139,7 @@ async function fetchRepo(slug: string): Promise<Repo | null> {
   try {
     const res = await fetch(`https://api.github.com/repos/${slug}`, {
       headers: githubHeaders(),
-      next: { revalidate },
+      next: { revalidate: REVALIDATE },
     });
 
     if (!res.ok) return null;
@@ -165,7 +167,7 @@ async function fetchPinned(): Promise<Repo[]> {
 async function fetchTopRepos(): Promise<Repo[]> {
   const res = await fetch(
     `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`,
-    { headers: githubHeaders(), next: { revalidate } }
+    { headers: githubHeaders(), next: { revalidate: REVALIDATE } }
   );
 
   if (!res.ok) throw new Error(`GitHub REST responded ${res.status}`);
@@ -179,20 +181,23 @@ async function fetchTopRepos(): Promise<Repo[]> {
     .map(toRepo);
 }
 
-export async function GET() {
+/**
+ * Pinned repositories for the code:work section.
+ *
+ * Resolves to an empty array rather than throwing, so a GitHub outage degrades
+ * the section instead of taking down the page that renders it.
+ */
+export async function getPinnedRepos(): Promise<Repo[]> {
   try {
-    return NextResponse.json(await fetchPinned());
+    return await fetchPinned();
   } catch (error) {
-    console.error("[api/repos] pinned lookup failed, falling back:", error);
+    console.error("[github] pinned lookup failed, falling back:", error);
   }
 
   try {
-    return NextResponse.json(await fetchTopRepos());
+    return await fetchTopRepos();
   } catch (error) {
-    console.error("[api/repos] failed to load repositories:", error);
-    return NextResponse.json(
-      { error: "Failed to load repositories" },
-      { status: 502 }
-    );
+    console.error("[github] failed to load repositories:", error);
+    return [];
   }
 }

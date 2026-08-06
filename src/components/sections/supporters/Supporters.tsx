@@ -6,13 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 
-import { getSupportersData } from "@/data/supporters";
+import { useSupportersData } from "@/data/supporters";
 import Tooltip from "@/components/ui/Tooltip";
 
 const Supporters: React.FC = () => {
   const t = useTranslations("Supporters");
 
-  const supporters = getSupportersData();
+  const supporters = useSupportersData();
 
   return (
     <motion.section

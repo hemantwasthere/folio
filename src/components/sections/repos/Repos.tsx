@@ -5,37 +5,16 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
-import { useEffect, useState } from "react";
 
 import { Repo } from "@/types";
 
-const Repos: React.FC = () => {
-  const [repos, setRepos] = useState<Repo[]>([]);
-  const [failed, setFailed] = useState(false);
+/**
+ * Presentational only — the data is fetched on the server by ReposSection.
+ * `repos === null` means "still streaming in", which lets this same component
+ * act as its own Suspense fallback instead of duplicating the section chrome.
+ */
+const Repos: React.FC<{ repos: Repo[] | null }> = ({ repos }) => {
   const t = useTranslations("Repos");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchRepos = async () => {
-      try {
-        const response = await fetch("/api/repos", {
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error(`/api/repos responded ${response.status}`);
-        setRepos(await response.json());
-      } catch (error) {
-        if (controller.signal.aborted) return;
-        // Without this the section shimmers forever on failure, which is how
-        // the dead gh-pinned-repos service went unnoticed.
-        console.error("Failed to load repositories:", error);
-        setFailed(true);
-      }
-    };
-
-    fetchRepos();
-    return () => controller.abort();
-  }, []);
 
   return (
     <motion.section
@@ -53,7 +32,14 @@ const Repos: React.FC = () => {
       </div>
 
       <div className="gap-[.8rem] flex-col justify-center items-center grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] mb-8 md:mb-12 relative before:content-['𝝺'] before:h-[300px] before:text-[175px] before:-z-10 before:select-none before:translate-x-[1140%] before:translate-y-[-50%] webkit_text_stroke before:opacity-[0.25] before:tracking-[-0.075em] before:absolute">
-        {repos.length > 0 ? (
+        {repos === null ? (
+          <>
+            <div className="repo_card shimmer" />
+            <div className="repo_card shimmer" />
+            <div className="repo_card shimmer" />
+            <div className="repo_card shimmer" />
+          </>
+        ) : repos.length > 0 ? (
           <>
             {repos.map(
               ({
@@ -173,17 +159,10 @@ const Repos: React.FC = () => {
               )
             )}
           </>
-        ) : failed ? (
+        ) : (
           <div className="repo_card col-span-full items-center justify-center">
             <h6 className="font-jetbrains text-center">{t("error")}</h6>
           </div>
-        ) : (
-          <>
-            <div className="repo_card shimmer" />
-            <div className="repo_card shimmer" />
-            <div className="repo_card shimmer" />
-            <div className="repo_card shimmer" />
-          </>
         )}
       </div>
     </motion.section>

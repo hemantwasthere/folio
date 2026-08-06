@@ -1,7 +1,11 @@
 import { useTranslations } from "next-intl";
 
-export function getSupportersData() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+/**
+ * A hook, not a plain getter — it reads translations, so it must follow the
+ * rules of hooks. Naming it `use*` makes that contract enforceable instead of
+ * suppressed.
+ */
+export function useSupportersData() {
   const t = useTranslations("Supporters");
 
   return [
