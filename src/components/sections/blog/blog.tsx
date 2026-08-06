@@ -3,8 +3,8 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-import Tooltip from "@/components/ui/Tooltip";
-import BlogGrid from "@/components/sections/blog/BlogGrid";
+import Tooltip from "@/components/ui/tooltip";
+import BlogGrid from "@/components/sections/blog/blog-grid";
 
 const Blog: React.FC = () => {
   const t = useTranslations("Blog");
@@ -17,7 +17,7 @@ const Blog: React.FC = () => {
       transition={{ duration: 0.3, ease: "linear" }}
     >
       <div
-        className="wrapper flex justify-start mt-0 !mb-[0.3rem] md:mb-0 md:justify-center before:content-['&&'] before:h-[300px] before:text-[175px] before:font-[700] before:-z-10 before:select-none before:translate-x-[-25%] before:translate-y-[-20%] sm:before:translate-x-[-310%] sm:before:translate-y-[-28%] webkit_text_stroke before:opacity-[0.25] before:tracking-[-0.075em] before:absolute
+        className="wrapper flex justify-start mt-0 mb-[0.3rem]! md:mb-0 md:justify-center before:content-['&&'] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-25%] before:translate-y-[-20%] sm:before:translate-x-[-310%] sm:before:translate-y-[-28%] webkit_text_stroke before:opacity-25 before:tracking-[-0.075em] before:absolute
         text-transparent"
         id="aw"
       >

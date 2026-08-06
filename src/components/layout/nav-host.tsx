@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import Nav from "@/components/layout/Nav";
+import Nav from "@/components/layout/nav";
 
 const NavHost: React.FC = () => {
   // getting the scroll position

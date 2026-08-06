@@ -3,8 +3,9 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
-import { PHProvider } from "@/providers/PHProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import { PHProvider } from "@/providers/ph-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
+
 import "./globals.css";
 
 export const metadata: Metadata = {

@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 
-import Footer from "@/components/layout/Footer";
-import About from "@/components/sections/about/About";
-import Blog from "@/components/sections/blog/Blog";
-import Hero from "@/components/sections/hero/Hero";
-import Repos from "@/components/sections/repos/Repos";
-import ReposSection from "@/components/sections/repos/ReposSection";
-import Supporters from "@/components/sections/supporters/Supporters";
+import Footer from "@/components/layout/footer";
+import About from "@/components/sections/about/about";
+import Blog from "@/components/sections/blog/blog";
+import Hero from "@/components/sections/hero/hero";
+import Repos from "@/components/sections/repos/repos";
+import ReposSection from "@/components/sections/repos/repos-section";
+import Supporters from "@/components/sections/supporters/supporters";
 import { getUserLocale } from "@/services/locale";
 
 export default async function Home() {
@@ -23,7 +23,7 @@ export default async function Home() {
       </Suspense>
       <Supporters />
       <Footer />
-      {/* Timeline is parked for now — see components/sections/timeline/Timeline.tsx */}
+      {/* Timeline is parked for now — see components/sections/timeline/timeline.tsx */}
     </div>
   );
 }

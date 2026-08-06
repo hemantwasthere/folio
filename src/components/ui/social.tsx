@@ -4,7 +4,7 @@ import Link from "next/link";
 import posthog from "posthog-js";
 import React, { useRef } from "react";
 
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from "@/components/ui/tooltip";
 
 interface SocialProps {
   tip: string;
@@ -48,7 +48,7 @@ const Social: React.FC<SocialProps> = ({ tip, link, children }) => {
               Clicked: true,
             });
           }}
-          className="transition-all flex justify-center items-center w-[50px] h-[50px] bg-transparent border-none rounded-[10px] cursor-pointer group-hover:bg-elevation_one active:scale-[95%] offset_ring"
+          className="transition-all flex justify-center items-center w-12.5 h-12.5 bg-transparent border-none rounded-[10px] cursor-pointer group-hover:bg-elevation_one active:scale-[95%] offset_ring"
           href={link}
           target="_blank"
           rel="noreferrer"

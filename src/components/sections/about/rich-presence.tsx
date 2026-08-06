@@ -6,7 +6,7 @@ import posthog from "posthog-js";
 import { useEffect, useState } from "react";
 import type { LanyardData } from "react-use-lanyard";
 
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from "@/components/ui/tooltip";
 import { useStatus } from "@/lib/lanyard";
 import { cn, user } from "@/lib/utils";
 
@@ -153,7 +153,7 @@ const RichPresence: React.FC = () => {
     <div>
       <h2 className="md:hidden">activity</h2>
       <div className=" gap-9 items-center font-jetbrains grid grid-cols-12">
-        <div className="mt-1 relative w-[100px] h-[100px] md:w-[135px] md:h-[135px] col-span-4">
+        <div className="mt-1 relative w-25 h-25 md:w-33.75 md:h-33.75 col-span-4">
           <Image
             src={image}
             alt={title}
@@ -180,7 +180,7 @@ const RichPresence: React.FC = () => {
         <div className="col-span-6 sm:col-span-8">
           {isSpotify ? (
             <Link
-              className="rounded-[4px] py-2 underline decoration-bg_color hover:decoration-text_primary offset_ring"
+              className="rounded-sm py-2 underline decoration-bg_color hover:decoration-text_primary offset_ring"
               href={songLink}
               target="_blank"
               rel="noreferrer"

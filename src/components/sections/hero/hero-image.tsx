@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import React, { useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 const HeroImage: React.FC = () => {
   const [zoom, setZoom] = useState<boolean>(false);
@@ -29,13 +30,12 @@ const HeroImage: React.FC = () => {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         className={cn(
-          "img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-[425px] xl:h-[400px] z-10 md:block self-start bg-elevation_one bg-cover bg-center bg-no-repeat bg-[url('/dread.png')] hidden"
+          "img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-106.25 xl:h-100 z-10 md:block self-start bg-elevation_one bg-cover bg-center bg-no-repeat bg-[url('/dread.png')] hidden"
         )}
         style={{
           transform: `
-                    perspective(500px) ${zoom ? "scale(1.05)" : ""} rotateX(${
-            rotate.x
-          }deg) rotateY(${rotate.y}deg)
+                    perspective(500px) ${zoom ? "scale(1.05)" : ""} rotateX(${rotate.x
+            }deg) rotateY(${rotate.y}deg)
                     `,
           transition:
             "width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",

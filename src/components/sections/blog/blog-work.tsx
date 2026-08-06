@@ -57,7 +57,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
 
       <div
         className={cn(
-          "relative border-none p-0 h-full w-full rounded-none md:rounded-[4px] overflow-hidden bg-elevation_one transition-[all_0.3s_var(--bezier-one)] cursor-pointer select-none bg-cover bg-no-repeat bg-center blog_card focus-within:offset_ring",
+          "relative border-none p-0 h-full w-full rounded-none md:rounded-sm overflow-hidden bg-elevation_one transition-[all_0.3s_var(--bezier-one)] cursor-pointer select-none bg-cover bg-no-repeat bg-center blog_card focus-within:offset_ring",
           {
             blog_tall: tall,
             blog_shrink: shrink,
@@ -77,7 +77,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
 
       {clicked && (
         <motion.div
-          className="blog_img_modal bg-blend-overlay flex flex-col justify-center items-center fixed left-0 top-[50%] w-full h-full z-20 cursor-pointer select-none bg-elevation_six backdrop-blur-[12px]"
+          className="blog_img_modal bg-blend-overlay flex flex-col justify-center items-center fixed left-0 top-[50%] w-full h-full z-20 cursor-pointer select-none bg-elevation_six backdrop-blur-md"
           onClick={() => setClicked(false)}
           onContextMenu={disableRightClick}
           initial={{ opacity: 0 }}
@@ -107,7 +107,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
 
             className="flex flex-col justify-center items-center"
           >
-            <h3 className="m-[1vh] text-[3.5vh] font-[500] text-text_primary">
+            <h3 className="m-[1vh] text-[3.5vh] font-medium text-text_primary">
               {blog}
             </h3>
 
@@ -120,7 +120,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
             <Link
               href={link}
               target="_blank"
-              className="offset_ring rounded-md m-[1vh] text-[2vh] mt-[2vh] flex items-center gap-2 text-text_secondary group hover:brightness-[1.3]"
+              className="offset_ring rounded-md m-[1vh] text-[2vh] mt-[2vh] flex items-center gap-2 text-text_secondary group hover:brightness-130"
               onClick={() => {
                 posthog.capture(`Blogwork(${subtitle}) link clicked`, {
                   Clicked: true,
@@ -136,7 +136,7 @@ const Blogwork: React.FC<BlogworkProps> = ({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 id="open"
-                className="open_new_window_icon h-[20px] transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-[1] group-hover:ml-2"
+                className="open_new_window_icon h-5 transition-[filter_.3s_var(--bezier-one)] group-hover:brightness-100 group-hover:ml-2"
               >
                 <path
                   d="M21 3h-6m6 0l-9 9m9-9v6"
