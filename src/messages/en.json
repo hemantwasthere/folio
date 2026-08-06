@@ -5,17 +5,16 @@
   },
   "Hero": {
     "name": "Hemant",
-    "innovative": "Innovative",
-    "wizard": "Wizard",
-    "transforming": "Transforming Designs into Reality",
+    "role": "Software engineer & design engineer",
+    "tagline": "from pixels to production",
     "discover": "Discover my work"
   },
   "About": {
     "about1": "Hey there, I’m Hemant! :] I’m a ",
-    "about2": "year old frontend developer and freelancer based in India. I’ve taken coding seriously since ",
+    "about2": "year old software engineer and design engineer based in India. I’ve taken coding seriously since ",
     "about3": ", and have been freelancing since ",
     "about4": ". Recently, however, I’ve grown a knack for giving back to community. I like contributing to ",
-    "about5": "as a web developer, which is probably the reason why you’ve ended up here. Currently struggling with blockchain and ",
+    "about5": "as a design engineer, which is probably the reason why you’ve ended up here. Currently struggling with blockchain and ",
     "about6": ""
   },
   "Blog": {
@@ -83,6 +82,33 @@
       "name": "Manu",
       "message": "hi"
     }
+  },
+  "Signatures": {
+    "prompt": "Sign my website!",
+    "add": "Add your signature",
+    "waiting": "Waiting for login…",
+    "loading": "Loading signatures…",
+    "empty": "No signatures yet :{",
+    "alreadySigned": "You already placed a signature with this account.",
+    "alreadySignedAs": "You already placed a signature as {email}. Sign out to use another account.",
+    "signOut": "Sign out",
+    "notConnected": "Signatures aren't connected right now :0",
+    "signatureBy": "Signature by {name}",
+    "modalTitle": "Add your signature",
+    "modalBlurb": "Add your name and signature, and a short message if you want! Keep things proper — I can remove anything for any reason. Thank you!",
+    "signedInAs": "Signed in as {email}",
+    "nameLabel": "Name",
+    "namePlaceholder": "hemant",
+    "messageLabel": "Message",
+    "messagePlaceholder": "ship it",
+    "padLabel": "Signature pad",
+    "undo": "Undo",
+    "redo": "Redo",
+    "clear": "Clear",
+    "cancel": "Cancel",
+    "place": "Place!",
+    "saving": "Saving…",
+    "close": "Close"
   },
   "Footer": {
     "madewithpain": "Made with pain",

@@ -14,6 +14,31 @@ interface AboutProps {
   currentLocale: string;
 }
 
+/**
+ * The "ai" in the bio swaps the whole site's language. Nothing about a word in
+ * running text says "click me", so the affordance is spelled out: a dotted
+ * underline, and a pulsing glyph of the language you would be switching to.
+ */
+const LocaleSwitch: React.FC<{
+  tip: string;
+  glyph: string;
+  onSwitch: () => void;
+}> = ({ tip, glyph, onSwitch }) => (
+  <Tooltip tip={tip}>
+    <button
+      tabIndex={-1}
+      aria-label={tip}
+      className="locale_hint"
+      onClick={onSwitch}
+    >
+      ai
+      <span aria-hidden="true" className="locale_hint_glyph">
+        {glyph}
+      </span>
+    </button>
+  </Tooltip>
+);
+
 const About: React.FC<AboutProps> = ({ currentLocale }) => {
   const [age, setAge] = useState<ReturnType<typeof getAge>>();
   const t = useTranslations("About");
@@ -82,36 +107,28 @@ const About: React.FC<AboutProps> = ({ currentLocale }) => {
           </Tooltip>{" "}
           {t("about5")}
           {currentLocale === "ja" && (
-            <Tooltip tip="<- go back to 英語 (english)">
-              <button
-                tabIndex={-1}
-                className="hover:underline"
-                onClick={() => {
-                  startTransition(() => {
-                    setUserLocale("en");
-                  });
-                }}
-              >
-                rust
-              </button>
-            </Tooltip>
+            <LocaleSwitch
+              tip="🤖 click to go back to 英語 (english)"
+              glyph="A"
+              onSwitch={() => {
+                startTransition(() => {
+                  setUserLocale("en");
+                });
+              }}
+            />
           )}
           {t("about6")}
           {currentLocale === "en" && (
             <>
-              <Tooltip tip="🦀 Pro, u've found another easter 🥚 too!">
-                <button
-                  tabIndex={-1}
-                  className="hover:underline"
-                  onClick={() => {
-                    startTransition(() => {
-                      setUserLocale("ja");
-                    });
-                  }}
-                >
-                  rust
-                </button>
-              </Tooltip>
+              <LocaleSwitch
+                tip="🤖 u've found another easter 🥚 — click for 日本語"
+                glyph="あ"
+                onSwitch={() => {
+                  startTransition(() => {
+                    setUserLocale("ja");
+                  });
+                }}
+              />
               .
             </>
           )}

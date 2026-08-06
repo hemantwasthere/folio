@@ -1,4 +1,4 @@
-import { Home } from "lucide-react";
+import { Home01Icon } from "@hugeicons/core-free-icons";
 
 export const timelines = [
   {
@@ -6,7 +6,7 @@ export const timelines = [
     title: "SDE Intern @EarthOnly",
     description:
       "Implemented passwordless authentication architecture in NodeJS with unit testing in JEST. Created API key creation service referenced to ACLs.",
-    icon: Home,
+    icon: Home01Icon,
     link: {
       text: "Visit EarthOnly",
       url: "https://earthonly.io",
@@ -17,7 +17,7 @@ export const timelines = [
     title: "Core Developer @IIC",
     description:
       "Implemented delivery of static assets through CDN, increasing the speed of the website by ~70%.",
-    icon: Home,
+    icon: Home01Icon,
     link: {
       text: "Visit IIC-DCRUST",
       url: "https://iicdcrustm.com/home",
@@ -28,7 +28,7 @@ export const timelines = [
     title: "Web Developer @WhatCode.in",
     description:
       "Set up responsive frontend templates of small scale startups, dashboard implementation using Firebase.",
-    icon: Home,
+    icon: Home01Icon,
     link: {
       text: "Visit WhatCode.in",
       url: "https://whatcode.in/",
@@ -39,7 +39,7 @@ export const timelines = [
     title: "First PR",
     description:
       "Contributed to open source for the first time in the Layer5.io website repository.",
-    icon: Home,
+    icon: Home01Icon,
     link: {
       text: "Visit Layer5.io",
       url: "https://layer5.io/",
@@ -49,30 +49,30 @@ export const timelines = [
     date: "12-10-2020",
     title: "Started University",
     description: "Began studying Computer Science at DCRUST.",
-    icon: Home,
+    icon: Home01Icon,
   },
   {
     date: "03-19-2020",
     title: "Graduated School",
     description: "Successfully completed my schooling.",
-    icon: Home,
+    icon: Home01Icon,
   },
   {
     date: "01-14-2020",
     title: "Qualified Joint Entrance Exam",
     description: "Qualified the national entrance exam with 94.2 percentile.",
-    icon: Home,
+    icon: Home01Icon,
   },
   {
     date: "05-04-2017",
     title: "Started high school",
     description: "Began studying non-medical at St. Thomas Sr. Sec. School",
-    icon: Home,
+    icon: Home01Icon,
   },
   {
     date: "08-01-2017",
     title: "Wrote the first line of code!",
     description: "Created my first ever shell script using visual basic.",
-    icon: Home,
+    icon: Home01Icon,
   },
 ];

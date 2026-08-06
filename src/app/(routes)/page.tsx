@@ -6,7 +6,8 @@ import Blog from "@/components/sections/blog/blog";
 import Hero from "@/components/sections/hero/hero";
 import Repos from "@/components/sections/repos/repos";
 import ReposSection from "@/components/sections/repos/repos-section";
-import Supporters from "@/components/sections/supporters/supporters";
+import Signatures from "@/components/sections/signatures/signatures";
+// import Supporters from "@/components/sections/supporters/supporters";
 import { getUserLocale } from "@/services/locale";
 
 export default async function Home() {
@@ -21,7 +22,10 @@ export default async function Home() {
       <Suspense fallback={<Repos repos={null} />}>
         <ReposSection />
       </Suspense>
-      <Supporters />
+      {/* Supporters is parked for now — the component and its data are still in
+          the tree, uncomment the import above to bring it back. */}
+      {/* <Supporters /> */}
+      <Signatures />
       <Footer />
       {/* Timeline is parked for now — see components/sections/timeline/timeline.tsx */}
     </div>

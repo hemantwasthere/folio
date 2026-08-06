@@ -1,5 +1,6 @@
+import { LinkSquare02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import { format, parse } from "date-fns";
-import { ExternalLink } from "lucide-react";
 
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ interface Timeline {
   date: Date | string;
   title: string;
   description?: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: IconSvgElement;
   link?: {
     text: string;
     url: string;
@@ -34,7 +35,7 @@ export default function Timeline({ timeline: rawTimeline }: TimelineProps) {
         </div>
         <ul className="-mb-8" role="list">
           {timeline.map(
-            ({ date, title, description, icon: EventIcon, link }, index) => (
+            ({ date, title, description, icon, link }, index) => (
               <li className="my-1" key={title}>
                 <div className="relative pb-8">
                   {index !== timeline.length - 1 && (
@@ -45,9 +46,12 @@ export default function Timeline({ timeline: rawTimeline }: TimelineProps) {
                   )}
                   <div className="timeline_card relative">
                     <div className="relative flex items-center justify-center w-12 h-12 bg-primary-500 bg-opacity-15 backdrop-filter backdrop-blur-sm saturate-200 mx-2 px-1 rounded-full">
-                      <EventIcon
+                      <HugeiconsIcon
+                        icon={icon}
+                        size={24}
+                        strokeWidth={1.5}
                         aria-hidden="true"
-                        className="w-6 h-6 text-primary-500"
+                        className="text-primary-500"
                       />
                     </div>
                     <div className="min-w-0">
@@ -67,7 +71,12 @@ export default function Timeline({ timeline: rawTimeline }: TimelineProps) {
                           target="_blank"
                         >
                           {link.text}
-                          <ExternalLink size={15} className="ml-3" />
+                          <HugeiconsIcon
+                            icon={LinkSquare02Icon}
+                            size={15}
+                            strokeWidth={1.5}
+                            className="ml-3"
+                          />
                         </Link>
                       )}
                     </div>

@@ -22,6 +22,14 @@
 
   --font-jetbrains: "JetBrains_Mono", monospace;
   --font-spacegrotesk: "Space_Grotesk", sans-serif;
+
+  /* Display face for h1/h2. Papyrus is proprietary (Monotype) so it cannot be
+     self-hosted like the other two — it is picked up from the system, where it
+     ships with macOS and Windows. The rest of the stack keeps the same
+     handwritten flavour for everyone else: Bradley Hand on Apple platforms,
+     Segoe Print on Windows, then a generic cursive for Linux and Android. */
+  --font-display: Papyrus, "Bradley Hand", "Segoe Print", "Brush Script MT",
+    cursive;
 }
 
 @utility w-wclamp344 {
@@ -138,6 +146,117 @@
   .timeline_card {
     @apply flex items-center space-x-3 bg-elevation_two/75 backdrop-blur-sm px-2 py-3 border-2 border-elevation_four rounded-lg;
   }
+}
+
+/* sign:wall. Each signature is stored as a transparent PNG of black-on-nothing
+   strokes, so it is painted as a mask over an accent-coloured box rather than
+   dropped in as an <img>. That way the ink re-tints with the palette and works
+   in both themes, instead of turning invisible in dark mode. */
+.signature_item {
+  transform: rotate(var(--signature-rotation, 0deg));
+  transition: transform 0.18s var(--bezier-one);
+  will-change: transform;
+}
+
+/* The tooltip owns the focusable element, so keyboard focus is matched on the
+   parent to keep hover and focus behaving the same. */
+.signature_item:hover,
+:focus-visible > .signature_item {
+  transform: rotate(0deg);
+}
+
+.signature_ink {
+  display: block;
+  width: clamp(70px, 20vw, 106px);
+  height: 42px;
+  background-color: var(--accent);
+  -webkit-mask-image: var(--signature-image);
+  mask-image: var(--signature-image);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  opacity: var(--signature-opacity, 0.82);
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}
+
+.signature_item:hover .signature_ink,
+:focus-visible > .signature_item .signature_ink {
+  filter: brightness(1.08) saturate(1.2);
+  opacity: 1;
+}
+
+@media (min-width: 769px) {
+  .signature_ink {
+    width: clamp(92px, 15vw, 160px);
+    height: 64px;
+  }
+}
+
+/* The locale easter egg in the bio. The theme toggle advertises itself by
+   bouncing, but that reads as noise on a word sitting inside a paragraph — so
+   this gets a dotted accent underline to say "interactive", and a small script
+   glyph breathing above it to say what clicking actually does. */
+.locale_hint {
+  position: relative;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s var(--bezier-one);
+}
+
+.locale_hint:hover,
+.locale_hint:focus-visible {
+  text-decoration-color: var(--accent);
+}
+
+/* Inline rather than a positioned superscript: the bio is a wrapped paragraph
+   with a 1.75rem line box, and anything lifted out of flow lands on top of the
+   line above. */
+.locale_hint_glyph {
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  line-height: 1;
+  color: var(--accent);
+  pointer-events: none;
+  animation: locale-hint 2.6s var(--bezier-one) infinite;
+}
+
+@keyframes locale-hint {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .locale_hint_glyph {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
+/* Graph paper behind the signing pad, so the canvas reads as something you
+   write on. */
+.signature_pad {
+  background-image: linear-gradient(
+      to right,
+      var(--elevation-four) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--elevation-four) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-color: var(--elevation-one);
 }
 
 @layer components {
@@ -257,19 +376,32 @@ body.stop-transitions * {
   }
 
   /*-----headings-----*/
+  /* h1 and h2 are the display voice of the site — the name and the one-word
+     section titles. They run in Syne; everything else stays Space Grotesk.
+     Syne's letterforms are wider than Space Grotesk's, so the inherited
+     -0.075em tracking closed the counters up too far and is eased off here. */
+  /* Papyrus ships in a single roman on both macOS and Windows, so 700 is a
+     synthetic bold — which on this face holds up fine, thickening the strokes
+     without losing the rough edge. Tracking is positive because Papyrus is
+     drawn with tight sidebearings and the site's global -0.05em would otherwise
+     jam the glyphs together. */
   h1 {
     color: var(--text-primary);
-    font-weight: 600;
-    letter-spacing: -0.075em;
-    line-height: 0.05rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.01em;
     line-height: 101.6%;
     font-size: 6rem;
   }
 
   h2 {
     color: var(--text-primary);
-    font-weight: 500;
-    font-size: 2.25rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    /* Nudged up from 2.25rem: Papyrus has a small x-height for its em, so the
+       section titles read a size smaller than the grotesque they replaced. */
+    font-size: 2.5rem;
     border-radius: 12px;
     width: fit-content;
     text-align: left;

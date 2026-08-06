@@ -5,16 +5,15 @@
   },
   "Hero": {
     "name": "ヘマント",
-    "innovative": "革新的",
-    "wizard": "ウィザード",
-    "transforming": "デザインを現実に変える",
+    "role": "ソフトウェアエンジニア兼デザインエンジニア",
+    "tagline": "ピクセルから本番環境まで",
     "discover": "私の仕事を発見する"
   },
   "About": {
     "about1": "こんにちは、Hemantです！:] 私はインド出身の",
-    "about2": "歳のfrontend developerで、フリーランサーをしています。",
+    "about2": "歳のsoftware engineer兼design engineerです。",
     "about3": "年から本格的にコーディングを始め、",
-    "about4": "年からフリーランスとして活動しています。しかし最近、コミュニティに貢献することに興味を持ち始めました。web developerとして",
+    "about4": "年からフリーランスとして活動しています。しかし最近、コミュニティに貢献することに興味を持ち始めました。design engineerとして",
     "about5": "に貢献するのが好きで、おそらくそれがここにたどり着いた理由でしょう。現在、blockchainと",
     "about6": "で苦戦しています。"
   },
@@ -83,6 +82,33 @@
       "name": "マンヌ",
       "message": "こんにちは"
     }
+  },
+  "Signatures": {
+    "prompt": "私のサイトにサインしてね！",
+    "add": "サインを追加",
+    "waiting": "ログインを待っています…",
+    "loading": "サインを読み込み中…",
+    "empty": "まだサインはありません :{",
+    "alreadySigned": "このアカウントではすでにサイン済みです。",
+    "alreadySignedAs": "{email} としてすでにサイン済みです。別のアカウントを使うにはサインアウトしてください。",
+    "signOut": "サインアウト",
+    "notConnected": "サイン機能に接続できていません :0",
+    "signatureBy": "{name}さんのサイン",
+    "modalTitle": "サインを追加",
+    "modalBlurb": "お名前とサイン、よければ短いメッセージもどうぞ！内容は健全にお願いします — こちらの判断で削除することがあります。ありがとう！",
+    "signedInAs": "{email} としてログイン中",
+    "nameLabel": "名前",
+    "namePlaceholder": "ヘマント",
+    "messageLabel": "メッセージ",
+    "messagePlaceholder": "がんばって",
+    "padLabel": "サインパッド",
+    "undo": "元に戻す",
+    "redo": "やり直す",
+    "clear": "消去",
+    "cancel": "キャンセル",
+    "place": "置く！",
+    "saving": "保存中…",
+    "close": "閉じる"
   },
   "Footer": {
     "madewithpain": "痛みで作られました",

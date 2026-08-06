@@ -34,7 +34,9 @@ const Social: React.FC<SocialProps> = ({ tip, link, children }) => {
 
   const getIconName = () => {
     if (link.includes("github")) return "github";
+    if (link.includes("linkedin")) return "linkedin";
     if (link.includes("discord")) return "discord";
+    if (link.includes("x.com")) return "x";
     if (link.includes("buymeacoffee")) return "kofi";
     if (link.includes("hemant.is.there")) return "mail";
   };

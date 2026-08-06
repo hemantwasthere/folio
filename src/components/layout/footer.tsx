@@ -19,7 +19,8 @@ const Footer: React.FC = () => {
       transition={{ duration: 0.3, ease: "linear" }}
       className="wrapper"
     >
-      <hr className="h-px border-none w-full mb-6 md:mb-8 bg-elevation_one" />
+      {/* The rule that used to sit here moved above the signature wall, which is
+          now what closes off the portfolio — see signature-wall.tsx. */}
       <div className="pb-[2.4rem] flex flex-col justify-between items-center md:flex-row">
         <Socials />
         <h6 className="text-center leading-10 mt-0 font-jetbrains">

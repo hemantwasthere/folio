@@ -23,13 +23,19 @@ const Hero: React.FC = () => {
         false && 'pointer-events-none opacity-60')}
     >
       <div className="relative w-fit">
-        <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:-tracking-widest before:absolute text-[65px] md:text-[96px] text-text_primary font-semibold w-fit'>
-          {t("name")}
-        </h1>
-        <ThemeToggle />
+        {/* The toggle is the dot on the "t", so it is positioned against the
+            name alone. Anchoring it to the column would tie it to whichever
+            child happens to be widest — usually the tagline, which means
+            editing that copy silently drags the dot sideways. */}
+        <div className="relative w-fit">
+          <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:-tracking-widest before:absolute text-[65px] md:text-[96px] text-text_primary w-fit'>
+            {t("name")}
+          </h1>
+          <ThemeToggle />
+        </div>
         <h4 className="mt-4 text-[22px] md:text-[26px]">
-          {t("innovative")} Frontend  {t("wizard")}.
-          <br className="hidden md:block" /> {t("transforming")}
+          {t("role")},
+          <br className="hidden md:block" /> {t("tagline")}.
         </h4>
         <div className="mt-4 mb-[1.7rem]">
           <Socials />
