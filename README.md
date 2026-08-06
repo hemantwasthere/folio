@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# folio
 
-## Getting Started
+Aesthetic, minimalistic, and responsive portfolio website — [hemant.lol](https://hemant.lol)
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, Turbopack) + [React 19](https://react.dev/)
+- [TypeScript 6](https://www.typescriptlang.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first config, no `tailwind.config.js`)
+- [next-intl](https://next-intl.dev/) for i18n (`en`, `ja`)
+- [next-themes](https://github.com/pacocoursey/next-themes) for light/dark
+- [Motion](https://motion.dev/) for animation
+- [Bun](https://bun.sh/) as package manager
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+bun install
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` and fill in the PostHog keys if you want
+analytics locally. Both are optional — the app renders fine without them.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Scripts
 
-## Learn More
+| Command          | Description                       |
+| ---------------- | --------------------------------- |
+| `bun dev`        | Start the dev server              |
+| `bun run build`  | Production build                  |
+| `bun start`      | Serve the production build        |
+| `bun run lint`   | ESLint (flat config)              |
+| `bun typecheck`  | `tsc --noEmit`                    |
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                    # App Router routes, root layout, global CSS
+    (routes)/             # Page shell (cursor, nav, resume button)
+  components/
+    layout/               # Site chrome — nav, footer, resume button
+    sections/             # One folder per page section
+      hero/ about/ blog/ repos/ supporters/ timeline/
+    ui/                   # Reusable primitives — Button, Tooltip, Cursor, ...
+  data/                   # Static content (supporters, timeline)
+  i18n/                   # next-intl config and request handler
+  lib/                    # Helpers (Lanyard/Discord presence, cn)
+  messages/               # Translation catalogues (en.json, ja.json)
+  providers/              # Theme and PostHog providers
+  services/               # Server actions (locale cookie)
+public/                   # Static assets, fonts, resume.pdf
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Theming
 
-## Deploy on Vercel
+Colours live in **one place**: the `@layer base` block in `src/app/globals.css`.
+`:root` holds the light palette and `.dark` holds the dark one. The `@theme inline`
+block at the top of that file maps those CSS variables onto Tailwind utilities
+(`text-text_primary`, `bg-elevation_one`, and so on), so changing a hex value
+there updates the whole site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Deployed on [Vercel](https://vercel.com/). Push to `main` and it ships.

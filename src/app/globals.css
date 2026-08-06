@@ -1,0 +1,509 @@
+@import "tailwindcss";
+
+/* next-themes toggles `.dark` on <html>, so drive the dark variant off the class
+   rather than Tailwind v4's default prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* `inline` matters here: these tokens point at CSS variables that are swapped
+   between light and dark in the @layer base block below, so the utilities must
+   emit `var(--accent)` rather than a snapshot of its value. */
+@theme inline {
+  --color-text_primary: var(--text-primary);
+  --color-text_secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent_opacity: var(--accent-opacity);
+  --color-bg_color: var(--bg-color);
+  --color-elevation_one: var(--elevation-one);
+  --color-elevation_two: var(--elevation-two);
+  --color-elevation_three: var(--elevation-three);
+  --color-elevation_four: var(--elevation-four);
+  --color-elevation_five: var(--elevation-five);
+  --color-elevation_six: var(--elevation-six);
+
+  --font-jetbrains: "JetBrains_Mono", monospace;
+  --font-spacegrotesk: "Space_Grotesk", sans-serif;
+}
+
+@utility w-wclamp344 {
+  width: clamp(340px, 40vw, 425px);
+}
+
+@utility h-hclamp344 {
+  height: clamp(300px, 40vw, 400px);
+}
+
+/* thanks https://gwfh.mranftl.com/fonts */
+/* ------------------------------------------------------------------------ */
+/* space-grotesk-300 */
+@font-face {
+  font-display: swap;
+  font-family: "Space_Grotesk";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../public/fonts/space-grotesk-v15-latin-300.woff2") format("woff2"),
+    url("../../public/fonts/space-grotesk-v15-latin-300.woff") format("woff");
+}
+/* space-grotesk-regular */
+@font-face {
+  font-display: swap;
+  font-family: "Space_Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../public/fonts/space-grotesk-v15-latin-regular.woff2")
+      format("woff2"),
+    url("../../public/fonts/space-grotesk-v15-latin-regular.woff") format("woff");
+}
+/* space-grotesk-500 */
+@font-face {
+  font-display: swap;
+  font-family: "Space_Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../public/fonts/space-grotesk-v15-latin-500.woff2") format("woff2"),
+    url("../../public/fonts/space-grotesk-v15-latin-500.woff") format("woff");
+}
+/* space-grotesk-600 */
+@font-face {
+  font-display: swap;
+  font-family: "Space_Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../public/fonts/space-grotesk-v15-latin-600.woff2") format("woff2"),
+    url("../../public/fonts/space-grotesk-v15-latin-600.woff") format("woff");
+}
+/* space-grotesk-700 */
+@font-face {
+  font-display: swap;
+  font-family: "Space_Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../public/fonts/space-grotesk-v15-latin-700.woff2") format("woff2"),
+    url("../../public/fonts/space-grotesk-v15-latin-700.woff") format("woff");
+}
+/* ------------------------------------------------------------------------ */
+/* jetbrains-mono-300 */
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains_Mono";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../public/fonts/jetbrains-mono-v18-latin-300.woff2") format("woff2"),
+    url("../../public/fonts/jetbrains-mono-v18-latin-300.woff") format("woff");
+}
+/* jetbrains-mono-regular */
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains_Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff2")
+      format("woff2"),
+    url("../../public/fonts/jetbrains-mono-v18-latin-regular.woff") format("woff");
+}
+/* jetbrains-mono-500 */
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains_Mono";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../public/fonts/jetbrains-mono-v18-latin-500.woff2") format("woff2"),
+    url("../../public/fonts/jetbrains-mono-v18-latin-500.woff") format("woff");
+}
+/* jetbrains-mono-600 */
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains_Mono";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../public/fonts/jetbrains-mono-v18-latin-600.woff2") format("woff2"),
+    url("../../public/fonts/jetbrains-mono-v18-latin-600.woff") format("woff");
+}
+/* jetbrains-mono-700 */
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains_Mono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../public/fonts/jetbrains-mono-v18-latin-700.woff2") format("woff2"),
+    url("../../public/fonts/jetbrains-mono-v18-latin-700.woff") format("woff");
+}
+
+@layer utilities {
+  .bio_span {
+    @apply font-normal font-jetbrains text-[.9rem] bg-elevation_one rounded-[7px] text-accent py-[.2rem] px-[.5rem] w-fit;
+  }
+  .repo_card {
+    @apply py-4 px-6 bg-elevation_two rounded-[8px] min-h-[140px] h-full flex flex-col gap-[.25rem] justify-between backdrop-blur-sm bg-blend-overlay border border-elevation_four hover:translate-y-[-2px];
+  }
+  .timeline_card {
+    @apply flex items-center space-x-3 bg-elevation_two/75 backdrop-blur-sm px-2 py-3 border-2 border-elevation_four rounded-lg;
+  }
+}
+
+@layer components {
+  .offset_ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ring-1 ring-transparent transition duration-500;
+  }
+}
+
+/* These element/universal rules must stay inside `base`. Tailwind v4 emits real
+   CSS cascade layers, and unlayered rules beat *any* layered rule regardless of
+   specificity — so an unlayered `* { margin: 0; padding: 0 }` would silently
+   override every `p-*`/`m-*` utility on the site. */
+@layer base {
+  * {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-margin-top: 6rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* font-family: var(--font-one); */
+    @media (max-width: 868px) {
+      scroll-margin-top: 1rem;
+    }
+  }
+
+  html {
+    box-sizing: border-box;
+    letter-spacing: -0.05em;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+  }
+}
+
+.wrapper {
+  min-height: 0vw;
+  margin-inline: auto;
+  width: min(90%, 62rem) !important;
+}
+
+@media (max-width: 868px) {
+  .wrapper {
+    margin-bottom: 4.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: min(88%, 65rem) !important;
+  }
+}
+
+body.stop-transitions * {
+  transition: none !important;
+}
+
+@layer base {
+  /* Cool slate palette, sampled directly from the reference screenshots rather
+     than eyeballed. `elevation-five` and `elevation-six` sit behind
+     backdrop-blur (the sticky nav and the blog lightbox), so they keep an alpha
+     channel; every other surface is opaque in the reference. */
+  :root {
+    --font-one: "Space_Grotesk", sans-serif;
+    --font-two: "JetBrains_Mono", monospace;
+    --bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --text-primary: #2b374b;
+    --text-secondary: #4d5e71;
+    --accent: #536a82;
+    --accent-opacity: #536a822a;
+    --bg-color: #dce5e6;
+    --elevation-one: #d3dedf;
+    --elevation-two: #d8e2e3;
+    --elevation-three: #a5b5bc;
+    --elevation-four: #bfcdd1;
+    --elevation-five: #dce5e6ce;
+    --elevation-six: #d3dedf9e;
+
+    /* Theme-toggle easter egg (the dot on the "t" in Hemant). Deliberately off
+       the slate ramp — it reads as a sun/moon, so it keeps its own two colours. */
+    --toggle-fill: #daf0f3;
+    --toggle-ring: #86bed8;
+  }
+
+  .dark {
+    --font-one: "Space_Grotesk", sans-serif;
+    --font-two: "JetBrains_Mono", monospace;
+    --bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --text-primary: #cfe2e5;
+    --text-secondary: #a7b6bc;
+    --accent: #a7c4ce;
+    --accent-opacity: #a7c4ce2a;
+    --bg-color: #181a1e;
+    --elevation-one: #212329;
+    --elevation-two: #1e2126;
+    --elevation-three: #31363c;
+    --elevation-four: #31363c;
+    --elevation-five: #181a1ece;
+    --elevation-six: #0a0b0dbb;
+
+    --toggle-fill: #97acb6;
+    --toggle-ring: #54687e;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: var(--accent-opacity);
+  }
+
+  /*-----headings-----*/
+  h1 {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 0.05rem;
+    line-height: 101.6%;
+    font-size: 6rem;
+  }
+
+  h2 {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 2.25rem;
+    border-radius: 12px;
+    width: fit-content;
+    text-align: left;
+  }
+
+  h3 {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-size: 1.6rem;
+  }
+
+  h5 {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    /* font-family: var(--font-two); */
+    font-weight: 300;
+    letter-spacing: -0.075em;
+  }
+
+  h6 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    /* font-family: var(--font-two); */
+    font-weight: 300;
+    letter-spacing: -0.075em;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: -0rem;
+    line-height: 1.75rem;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(7px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(7px);
+  }
+}
+
+.img-container {
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+  animation-play-state: running;
+}
+
+@media (max-width: 1240px) {
+  .img-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@layer base {
+  @media (max-width: 868px) {
+    h2 {
+      display: block;
+      padding: 0;
+      background-color: transparent;
+      font-size: 1.75rem;
+      margin-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 10rem;
+    margin: 0;
+    margin-top: 0.6rem;
+    background-color: var(--elevation-one);
+    height: 0.6rem;
+    overflow: hidden;
+
+    &::-webkit-progress-bar {
+      background-color: var(--elevation-one);
+      border-radius: 10rem;
+    }
+
+    /* dont ask me why these have to be duplicated because idk either */
+    &[value]::-webkit-progress-value {
+      background-color: var(--accent);
+      border-radius: 10rem;
+    }
+
+    &[value]::-moz-progress-bar {
+      background-color: var(--accent);
+      border-radius: 10rem;
+    }
+  }
+}
+
+/* @media screen and (max-width: 868px) {
+    .spin {
+        border-radius: 50%;
+    }
+} */
+
+.social_svg > path {
+  stroke: var(--accent);
+}
+
+.open_new_window_icon > path {
+  stroke: var(--text-secondary);
+}
+
+.blog_grid {
+  grid-auto-rows: 230px;
+}
+
+@media screen and (max-width: 600px) {
+  .blog_grid {
+    grid-auto-rows: 125px;
+  }
+}
+
+.blog_img_modal {
+  transform: translateY(-50%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.blog_tall {
+  grid-row: span 2 / auto;
+}
+
+@media only screen and (max-width: 1153px) {
+  .blog_shrink {
+    grid-row: span 1 / auto;
+    background-position: top;
+  }
+}
+
+.blog_card {
+  -webkit-transform: translate3d(0, 0, 1px);
+  transform: translate3d(0, 0, 1px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.blog_card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.webkit_text_stroke::before {
+  -webkit-text-stroke: 2px var(--text-primary);
+  color: transparent;
+}
+
+.webkit_text_stroke_after::after {
+  -webkit-text-stroke: 2px var(--text-primary);
+  color: transparent;
+}
+
+.webkit_backdrop_filter_15px {
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0px 15px 8px -10px rgba(0, 0, 0, 0.4);
+}
+
+.repo_card:hover {
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
+}
+
+.shimmer {
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #ddd;
+  background: linear-gradient(
+    to right,
+    var(--elevation-two) 8%,
+    var(--elevation-one) 18%,
+    var(--elevation-two) 33%
+  );
+  background-size: 1200px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+/*-----scrollbar-----*/
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 11px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--elevation-three);
+    background-clip: content-box;
+  }
+
+  ::-webkit-slider-thumb:hover {
+    background-color: var(--elevation-one);
+  }
+}

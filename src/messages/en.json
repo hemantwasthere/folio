@@ -1,0 +1,92 @@
+{
+  "Nav": {
+    "about": "about",
+    "work": "work"
+  },
+  "Hero": {
+    "name": "Hemant",
+    "innovative": "Innovative",
+    "wizard": "Wizard",
+    "transforming": "Transforming Designs into Reality",
+    "discover": "Discover my work"
+  },
+  "About": {
+    "about1": "Hey there, I’m Hemant! :] I’m a ",
+    "about2": "year old frontend developer and freelancer based in India. I’ve taken coding seriously since ",
+    "about3": ", and have been freelancing since ",
+    "about4": ". Recently, however, I’ve grown a knack for giving back to community. I like contributing to ",
+    "about5": "as a web developer, which is probably the reason why you’ve ended up here. Currently struggling with blockchain and ",
+    "about6": ""
+  },
+  "Blog": {
+    "blog": "blog",
+    "blogTooltip": "Click on an blogwork",
+    "work": "work",
+    "blog1": {
+      "blog": "frost",
+      "subtitle": "docker networking"
+    },
+    "blog2": {
+      "blog": "deep",
+      "subtitle": "graphql"
+    },
+    "blog3": {
+      "blog": "rain",
+      "subtitle": "kafka"
+    },
+    "blog4": {
+      "blog": "purp",
+      "subtitle": "whisper"
+    },
+    "blog5": {
+      "blog": "makima",
+      "subtitle": "cloudflare"
+    },
+    "blog6": {
+      "blog": "ghost",
+      "subtitle": "moving gradients"
+    },
+    "blog7": {
+      "blog": "yoru",
+      "subtitle": "grid"
+    },
+    "blog8": {
+      "blog": "nisu",
+      "subtitle": "zustand"
+    },
+    "blog9": {
+      "blog": "lost",
+      "subtitle": "dnd"
+    },
+    "blog10": {
+      "blog": "momi",
+      "subtitle": "evolution"
+    }
+  },
+  "Repos": {
+    "code": "code",
+    "work": "work",
+    "error": "couldn't load repos right now"
+  },
+  "Supporters": {
+    "supporters": "supporters",
+    "thankyou": "Thank you",
+    "supporter1": {
+      "name": "Piyush",
+      "message": "hi"
+    },
+    "supporter2": {
+      "name": "Akira",
+      "message": "hi"
+    },
+    "supporter3": {
+      "name": "Manu",
+      "message": "hi"
+    }
+  },
+  "Footer": {
+    "madewithpain": "Made with pain",
+    "youarehere": "you're here",
+    "howtodelete": "how to delete"
+  }
+}
