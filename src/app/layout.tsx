@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description: "not the only website ever",
     type: "website",
     url: "https://hemant.lol",
-    images: "/dread.png",
+    images: "/dread.jpg",
   },
   twitter: {
-    images: "/dread.png",
+    images: "/dread.jpg",
     card: "summary",
   },
 };

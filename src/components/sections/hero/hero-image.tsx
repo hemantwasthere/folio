@@ -30,7 +30,7 @@ const HeroImage: React.FC = () => {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         className={cn(
-          "img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-106.25 xl:h-100 z-10 md:block self-start bg-elevation_one bg-cover bg-center bg-no-repeat bg-[url('/dread.png')] hidden"
+          "img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-106.25 xl:h-100 z-10 md:block self-start bg-cover bg-center bg-no-repeat bg-[url('/dread.webp')] hidden"
         )}
         style={{
           transform: `
