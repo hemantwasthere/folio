@@ -9,7 +9,9 @@ import Socials from "@/components/ui/socials";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/ui/theme-toggle";
 
-const Hero: React.FC = () => {
+import { CurrentLocaleProps } from "../about/about";
+
+const Hero: React.FC<CurrentLocaleProps> = ({ currentLocale }) => {
   const t = useTranslations("Hero");
 
   return (
@@ -31,7 +33,7 @@ const Hero: React.FC = () => {
           <h1 className='before:content-["///"] before:h-75 before:text-[175px] before:font-bold before:-z-10 before:select-none before:translate-x-[-95%] before:translate-y-0 webkit_text_stroke before:opacity-25 before:-tracking-widest before:absolute text-[65px] md:text-[96px] text-text_primary w-fit'>
             {t("name")}
           </h1>
-          <ThemeToggle />
+          <ThemeToggle currentLocale={currentLocale} />
         </div>
         <h4 className="mt-4 text-[22px] md:text-[26px]">
           {t("role")},

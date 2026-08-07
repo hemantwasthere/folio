@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Hero />
+      <Hero currentLocale={currentLocale} />
       <About currentLocale={currentLocale} />
       <Blog />
       {/* Repos are fetched on the server; the shimmer streams until GitHub answers. */}

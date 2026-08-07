@@ -2,9 +2,12 @@
 
 import { useTheme } from "next-themes";
 
-import Tooltip from "./tooltip";
+import { cn } from "@/lib/utils";
 
-const ThemeToggle = () => {
+import Tooltip from "./tooltip";
+import { CurrentLocaleProps } from "../sections/about/about";
+
+const ThemeToggle: React.FC<CurrentLocaleProps> = ({ currentLocale }) => {
   const { setTheme, resolvedTheme } = useTheme();
 
   return (
@@ -12,7 +15,9 @@ const ThemeToggle = () => {
        tracking the "t" as the heading scales between breakpoints. */
     <Tooltip
       tip="🌕 yoo, u've found an easter 🥚"
-      className="absolute right-[0.5%] -top-6 md:right-[1.5%] md:-top-7"
+      className={cn("absolute right-[0.5%] -top-6 md:right-[3.7%] md:-top-7", {
+        "right-[14%]! -top-10!": currentLocale === 'ja'
+      })}
     >
       <button
         tabIndex={-1}

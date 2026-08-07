@@ -10,7 +10,7 @@ import Tooltip from "@/components/ui/tooltip";
 import { setUserLocale } from "@/services/locale";
 import RichPresence from "@/components/sections/about/rich-presence";
 
-interface AboutProps {
+export interface CurrentLocaleProps {
   currentLocale: string;
 }
 
@@ -39,7 +39,7 @@ const LocaleSwitch: React.FC<{
   </Tooltip>
 );
 
-const About: React.FC<AboutProps> = ({ currentLocale }) => {
+const About: React.FC<CurrentLocaleProps> = ({ currentLocale }) => {
   const [age, setAge] = useState<ReturnType<typeof getAge>>();
   const t = useTranslations("About");
 
