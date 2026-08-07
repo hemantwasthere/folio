@@ -270,6 +270,114 @@
   background-color: var(--elevation-one);
 }
 
+/* The synth. Its whole palette is mixed out of the site tokens rather than
+   picked separately, so it re-tints with the theme like every other surface —
+   the shell is an elevation, the LCD is the accent bled into one, and the keys
+   keep real piano contrast (light naturals, dark sharps) in both modes instead
+   of inverting in the dark. */
+.synth {
+  --synth-shell: var(--elevation-two);
+  --synth-edge: color-mix(in srgb, var(--accent) 78%, var(--text-primary));
+  --synth-lcd: color-mix(in srgb, var(--accent) 15%, var(--elevation-one));
+  --synth-lcd-ink: var(--accent);
+  --synth-lcd-dim: color-mix(in srgb, var(--accent) 32%, transparent);
+  --synth-white: color-mix(in srgb, white 62%, var(--bg-color));
+  --synth-white-pressed: color-mix(in srgb, var(--accent) 34%, var(--bg-color));
+  --synth-black: var(--text-primary);
+  --synth-black-pressed: var(--accent);
+  --synth-letter: color-mix(in srgb, var(--text-secondary) 55%, transparent);
+  --synth-letter-on-black: color-mix(in srgb, var(--bg-color) 62%, transparent);
+}
+
+.dark .synth {
+  --synth-shell: var(--elevation-one);
+  /* Darker than either neighbour: in the dark theme the edge is what separates
+     one white key from the next, so it has to be the shadow, not a highlight. */
+  --synth-edge: color-mix(in srgb, black 55%, var(--elevation-two));
+  --synth-lcd: color-mix(in srgb, var(--accent) 8%, #0d0f13);
+  --synth-lcd-dim: color-mix(in srgb, var(--accent) 26%, transparent);
+  --synth-white: color-mix(
+    in srgb,
+    var(--text-primary) 24%,
+    var(--elevation-three)
+  );
+  --synth-white-pressed: color-mix(
+    in srgb,
+    var(--accent) 58%,
+    var(--elevation-three)
+  );
+  --synth-black: color-mix(in srgb, black 62%, var(--elevation-two));
+  --synth-black-pressed: color-mix(
+    in srgb,
+    var(--accent) 42%,
+    var(--elevation-two)
+  );
+  --synth-letter: color-mix(in srgb, var(--text-primary) 62%, transparent);
+  --synth-letter-on-black: color-mix(
+    in srgb,
+    var(--text-primary) 45%,
+    transparent
+  );
+}
+
+.synth > svg {
+  filter: drop-shadow(0 6px 14px color-mix(in srgb, black 16%, transparent));
+}
+
+.synth_key > path {
+  fill: var(--synth-white);
+  /* Slow on the way back up so a glissando leaves a trail behind it, instant on
+     the way down so a keypress feels connected. */
+  transition: fill 0.4s ease-out;
+}
+
+.synth_key--black > path {
+  fill: var(--synth-black);
+}
+
+.synth_key[data-pressed] {
+  transform: translateY(2px);
+}
+
+.synth_key[data-pressed] > path {
+  fill: var(--synth-white-pressed);
+  transition: none;
+}
+
+.synth_key--black[data-pressed] > path {
+  fill: var(--synth-black-pressed);
+}
+
+.synth_control,
+.synth_start {
+  opacity: 0.85;
+  transition: opacity 0.2s var(--bezier-one);
+}
+
+.synth_control:hover,
+.synth_start:hover {
+  opacity: 1;
+}
+
+/* The key letters ripple in once the synth is switched on — before that there
+   is nothing to label, because the keys do not respond yet. */
+.synth_letter {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.synth_letter[data-visible] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .synth_key,
+  .synth_key > path,
+  .synth_letter {
+    transition: none;
+  }
+}
+
 @layer components {
   .offset_ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ring-1 ring-transparent transition duration-500;

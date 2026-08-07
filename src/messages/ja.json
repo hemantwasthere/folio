@@ -67,6 +67,30 @@
     "work": "作業",
     "error": "リポジトリを読み込めませんでした"
   },
+  "Synth": {
+    "noise": "ノイズ",
+    "maker": "メーカー",
+    "label": "演奏できるシンセサイザー",
+    "hint": "鍵をクリック、またはフォーカスして A–; で演奏  ·  ← → で楽器切替  ·  アイコンを押すと選び直し",
+    "hintTouch": "鍵をタップ・ドラッグ  ·  楽器アイコンをタップすると選び直し",
+    "previous": "前の楽器",
+    "next": "次の楽器",
+    "shuffle": "楽器を選び直す",
+    "instruments": {
+      "piano": "ピアノ",
+      "musicbox": "オルゴール",
+      "xylophone": "木琴",
+      "harp": "ハープ",
+      "banjo": "バンジョー",
+      "ocarina": "オカリナ",
+      "organ": "オルガン",
+      "vox": "ボイス",
+      "chip": "8ビット",
+      "farts": "おなら"
+    },
+    "start": "PLAY を押すと楽器が選ばれます",
+    "hintIdle": "PLAY を押してね — 楽器はおまかせ"
+  },
   "Supporters": {
     "supporters": "サポーター",
     "thankyou": "ありがとう",

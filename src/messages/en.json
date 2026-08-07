@@ -67,6 +67,30 @@
     "work": "work",
     "error": "couldn't load repos right now"
   },
+  "Synth": {
+    "noise": "noise",
+    "maker": "maker",
+    "label": "Playable synth keyboard",
+    "hint": "Click the keys, or focus the synth and play with A–;  ·  ← → change instrument  ·  tap the icon to reshuffle",
+    "hintTouch": "Tap or drag across the keys  ·  tap the instrument icon to reshuffle",
+    "previous": "Previous instrument",
+    "next": "Next instrument",
+    "shuffle": "Shuffle instrument",
+    "instruments": {
+      "piano": "Piano",
+      "musicbox": "Music Box",
+      "xylophone": "Xylophone",
+      "harp": "Harp",
+      "banjo": "Banjo",
+      "ocarina": "Ocarina",
+      "organ": "Organ",
+      "vox": "Voice",
+      "chip": "8-Bit",
+      "farts": "Butts"
+    },
+    "start": "Press play to pick an instrument",
+    "hintIdle": "Hit PLAY — it picks an instrument for you"
+  },
   "Supporters": {
     "supporters": "supporters",
     "thankyou": "Thank you",
